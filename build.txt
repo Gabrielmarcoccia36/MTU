@@ -1,0 +1,4 @@
+displayName = Marvel Terraria Universe
+author = Nkaiw0rld
+version = 0.1
+buildIgnore = *.csproj
