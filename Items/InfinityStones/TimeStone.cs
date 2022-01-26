@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Items
+namespace MTU.Items.InfinityStones
 {
     class TimeStone : ModItem
     {
@@ -22,13 +22,13 @@ namespace MTU.Items
             item.useStyle = 1;
             item.useTime = 40;
             item.useAnimation = 20;
-            item.buffType = 3;
-            item.buffTime = 36000;
+            item.material = true;
         }
 
         public override bool UseItem(Player player)
         {
             player.AddBuff(2, 36000);
+            player.AddBuff(3, 36000);
             player.AddBuff(6, 36000);
             player.AddBuff(8, 36000);
             player.AddBuff(104, 36000);

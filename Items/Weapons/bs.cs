@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Items
+namespace MTU.Items.Weapons
 {
 	public class bs : ModItem
 	{
@@ -27,6 +27,7 @@ namespace MTU.Items
 			item.autoReuse = true;
 		}
 
+		/*
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -35,5 +36,6 @@ namespace MTU.Items
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
+		*/
 	}
 }

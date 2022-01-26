@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Items
+namespace MTU.Items.InfinityStones
 {
     class SpaceStone : ModItem
     {
@@ -23,6 +23,7 @@ namespace MTU.Items
             item.useStyle = 1;
             item.useTime = 40;
             item.useAnimation = 20;
+            item.material = true;
         }
 
         public override bool UseItem(Player player)
