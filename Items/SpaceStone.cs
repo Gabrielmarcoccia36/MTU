@@ -1,15 +1,16 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace MTU.Items
 {
-    class SoulStone : ModItem
+    class SpaceStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul Stone");
-            Tooltip.SetDefault("A soul for a soul");
+            DisplayName.SetDefault("Space Stone");
+            Tooltip.SetDefault("Anywhere, anytime");
         }
 
         public override void SetDefaults()
@@ -22,13 +23,17 @@ namespace MTU.Items
             item.useStyle = 1;
             item.useTime = 40;
             item.useAnimation = 20;
-            item.buffType = 17;
-            item.buffTime = 36000;
         }
 
         public override bool UseItem(Player player)
         {
-            player.AddBuff(9, 36000);
+            var mousePos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
+            if (!Collision.SolidCollision(mousePos, player.width, player.height))
+            {
+                player.Teleport(mousePos);
+                player.AddBuff(8, 100);
+                return true;
+            }
 
             return true;
         }

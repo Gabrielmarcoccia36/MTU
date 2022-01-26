@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace MTU.Items
 {
-    class SoulStone : ModItem
+    class MindStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul Stone");
-            Tooltip.SetDefault("A soul for a soul");
+            DisplayName.SetDefault("Mind Stone");
+            Tooltip.SetDefault("Hear its call");
         }
 
         public override void SetDefaults()
@@ -22,13 +22,10 @@ namespace MTU.Items
             item.useStyle = 1;
             item.useTime = 40;
             item.useAnimation = 20;
-            item.buffType = 17;
-            item.buffTime = 36000;
         }
-
         public override bool UseItem(Player player)
         {
-            player.AddBuff(9, 36000);
+            player.AddBuff(10, 36000);
 
             return true;
         }

@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace MTU.Items
 {
-    class SoulStone : ModItem
+    class PowerStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul Stone");
-            Tooltip.SetDefault("A soul for a soul");
+            DisplayName.SetDefault("Power Stone");
+            Tooltip.SetDefault("Unlimited Power has a price");
         }
 
         public override void SetDefaults()
@@ -22,13 +22,22 @@ namespace MTU.Items
             item.useStyle = 1;
             item.useTime = 40;
             item.useAnimation = 20;
-            item.buffType = 17;
+            item.buffType = 5;
             item.buffTime = 36000;
         }
 
         public override bool UseItem(Player player)
         {
-            player.AddBuff(9, 36000);
+            player.AddBuff(7, 36000);
+            player.AddBuff(14, 36000);
+            player.AddBuff(16, 36000);
+            player.AddBuff(108, 36000);
+            player.AddBuff(110, 36000);
+            player.AddBuff(114, 36000);
+            player.AddBuff(115, 36000);
+            player.AddBuff(117, 36000);
+
+            player.Hurt(Terraria.DataStructures.PlayerDeathReason.ByCustomReason("Your body was too weak!"), 50, 0);
 
             return true;
         }

@@ -19,8 +19,9 @@ namespace MTU.Items
             item.maxStack = 1;
             item.value = Item.sellPrice(platinum: 10);
             item.rare = 11;
-            item.useStyle = 4;
-            item.useTime = 3;
+            item.useStyle = 1;
+            item.useTime = 40;
+            item.useAnimation = 20;
             item.buffType = 18;
             item.buffTime = 36000;
         }
