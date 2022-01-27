@@ -30,6 +30,7 @@ namespace MTU.Items.Armors
 
         public override void UpdateArmorSet(Player player)
         {
+            player.setBonus = "Defense incremented by 2 and Slow";
             player.statDefense += 2;
             player.AddBuff(BuffID.Slow, 2);
             base.UpdateArmorSet(player);
