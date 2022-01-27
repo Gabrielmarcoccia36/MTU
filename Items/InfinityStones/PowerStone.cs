@@ -46,7 +46,7 @@ namespace MTU.Items.InfinityStones
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(mod, "TheOrb");
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
