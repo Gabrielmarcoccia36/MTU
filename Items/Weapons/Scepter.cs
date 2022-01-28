@@ -30,8 +30,9 @@ namespace MTU.Items.Weapons
             item.useTurn = true;
             item.knockBack = 5;
             item.autoReuse = true;
-            item.shootSpeed = 16f;
+            item.shootSpeed = 30f;
             item.shoot = ProjectileID.ChargedBlasterOrb;
+            item.material = true;
         }
 
     }

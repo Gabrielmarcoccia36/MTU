@@ -30,5 +30,14 @@ namespace MTU.Items.InfinityStones
 
             return true;
         }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<Items.Weapons.Scepter>(), 1);
+            recipe.AddTile(TileID.AdamantiteForge);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }
