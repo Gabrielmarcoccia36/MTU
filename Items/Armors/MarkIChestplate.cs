@@ -5,11 +5,11 @@ using Terraria.ModLoader;
 namespace MTU.Items.Armors
 {
     [AutoloadEquip(EquipType.Body)]
-    class MarkIBreastplate : ModItem
+    class MarkIChestplate : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mark I Breastplate");
+            DisplayName.SetDefault("Mark I Chestplate");
             Tooltip.SetDefault("Heavy, but efficient");
         }
 

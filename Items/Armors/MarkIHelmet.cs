@@ -25,11 +25,12 @@ namespace MTU.Items.Armors
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<MarkIBreastplate>() && legs.type == ModContent.ItemType<MarkILeggings>();
+            return body.type == ModContent.ItemType<MarkIChestplate>() && legs.type == ModContent.ItemType<MarkILeggings>();
         }
 
         public override void UpdateArmorSet(Player player)
         {
+            
             player.setBonus = "Defense incremented by 2 and Slow";
             player.statDefense += 2;
             player.AddBuff(BuffID.Slow, 2);
