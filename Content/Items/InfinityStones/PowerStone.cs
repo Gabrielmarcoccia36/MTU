@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Items.InfinityStones
+namespace MTU.Content.Items.InfinityStones
 {
     class PowerStone : ModItem
     {

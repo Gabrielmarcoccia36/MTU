@@ -5,7 +5,7 @@ using Terraria.World.Generation;
 using Microsoft.Xna.Framework;
 using MTU.Items.Tiles;
 
-namespace MTU.Items.Consumable
+namespace MTU.Content.Items.Consumable
 {
     class WakandasBlessing : ModItem
     {

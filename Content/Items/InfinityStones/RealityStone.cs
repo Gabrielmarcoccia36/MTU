@@ -2,14 +2,14 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Items.InfinityStones
+namespace MTU.Content.Items.InfinityStones
 {
-    class SoulStone : ModItem
+    class RealityStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul Stone");
-            Tooltip.SetDefault("A soul for a soul");
+            DisplayName.SetDefault("Reality Stone");
+            Tooltip.SetDefault("Reality is in your hands");
         }
 
         public override void SetDefaults()
@@ -27,8 +27,7 @@ namespace MTU.Items.InfinityStones
 
         public override bool UseItem(Player player)
         {
-            player.AddBuff(9, 36000);
-            player.AddBuff(17, 36000);
+            player.AddBuff(18, 36000);
 
             return true;
         }

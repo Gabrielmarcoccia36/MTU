@@ -4,7 +4,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ObjectData;
 
-namespace MTU.Items.Tiles
+namespace MTU.Content.Items.Tiles
 {
     class VibraniumTile : ModTile
     {

@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace MTU.Items.Materials
+namespace MTU.Content.Items.Materials
 {
     class VibraniumBar : ModItem
     {

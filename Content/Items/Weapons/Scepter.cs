@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Items.Weapons
+namespace MTU.Content.Items.Weapons
 {
     class Scepter : ModItem
     {

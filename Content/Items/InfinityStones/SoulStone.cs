@@ -2,14 +2,14 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Items.InfinityStones
+namespace MTU.Content.Items.InfinityStones
 {
-    class MindStone : ModItem
+    class SoulStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mind Stone");
-            Tooltip.SetDefault("Hear its call");
+            DisplayName.SetDefault("Soul Stone");
+            Tooltip.SetDefault("A soul for a soul");
         }
 
         public override void SetDefaults()
@@ -24,20 +24,13 @@ namespace MTU.Items.InfinityStones
             item.useAnimation = 20;
             item.material = true;
         }
+
         public override bool UseItem(Player player)
         {
-            player.AddBuff(10, 36000);
+            player.AddBuff(9, 36000);
+            player.AddBuff(17, 36000);
 
             return true;
-        }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapons.Scepter>(), 1);
-            recipe.AddTile(TileID.AdamantiteForge);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
         }
     }
 }

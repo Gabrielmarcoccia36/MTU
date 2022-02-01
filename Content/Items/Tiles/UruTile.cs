@@ -4,9 +4,9 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ObjectData;
 
-namespace MTU.Items.Tiles
+namespace MTU.Content.Items.Tiles
 {
-    class UraniumTile : ModTile
+    class UruTile : ModTile
     {
         public override void SetDefaults()
         {
@@ -16,15 +16,15 @@ namespace MTU.Items.Tiles
             Main.tileShine[Type] = 1000;
 
 
-            drop = mod.ItemType("Uranium");
+            drop = mod.ItemType("Uru");
             dustType = DustID.Platinum;
 
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Uranium");
+            name.SetDefault("Uru");
 
-            AddMapEntry(Color.GreenYellow, name);
+            AddMapEntry(Color.DarkGoldenrod, name);
 
-            minPick = 35;
+            minPick = 80;
         }
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
