@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Content.Buffs
+namespace MTU.Items.Buffs
 {
     class MarkIBuff : ModBuff
     {
