@@ -9,12 +9,14 @@ namespace MTU.Items.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Mark I Buff");
-            Description.SetDefault("The Mark I allows for a brief flight");
+            Description.SetDefault("This suit allows brief flight, grants extra armor but, due to its massive weight, it slows you down!");
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
             player.rocketBoots = 1;
+            player.moveSpeed -= 0.25f;
+            player.statDefense += 4;
         }
     }
 }
