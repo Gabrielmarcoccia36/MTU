@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace MTU.Content.Items.Materials
+namespace MTU.Items.Materials
 {
     class AdamantiumBar : ModItem
     {

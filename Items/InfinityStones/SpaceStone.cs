@@ -1,15 +1,16 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Content.Items.InfinityStones
+namespace MTU.Items.InfinityStones
 {
-    class MindStone : ModItem
+    class SpaceStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mind Stone");
-            Tooltip.SetDefault("Hear its call");
+            DisplayName.SetDefault("Space Stone");
+            Tooltip.SetDefault("Anywhere, anytime");
         }
 
         public override void SetDefaults()
@@ -24,20 +25,18 @@ namespace MTU.Content.Items.InfinityStones
             item.useAnimation = 20;
             item.material = true;
         }
+
         public override bool UseItem(Player player)
         {
-            player.AddBuff(10, 36000);
+            var mousePos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
+            if (!Collision.SolidCollision(mousePos, player.width, player.height))
+            {
+                player.Teleport(mousePos);
+                player.AddBuff(8, 100);
+                return true;
+            }
 
             return true;
-        }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapons.Scepter>(), 1);
-            recipe.AddTile(TileID.AdamantiteForge);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
         }
     }
 }

@@ -2,14 +2,14 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace MTU.Content.Items.Materials
+namespace MTU.Items.Materials
 {
-    class Uranium : ModItem
+    class Vibranium : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Uranium");
-            Tooltip.SetDefault("Non radioactive for all mighty terraria players");
+            DisplayName.SetDefault("Vibranium");
+            Tooltip.SetDefault("Strongest Metal of Earth-199999!");
         }
 
         public override void SetDefaults()
@@ -21,7 +21,7 @@ namespace MTU.Content.Items.Materials
             item.useStyle = 1;
             item.useTime = 10;
             item.useAnimation = 10;
-            item.createTile = mod.TileType("UraniumTile");
+            item.createTile = mod.TileType("VibraniumTile");
             item.autoReuse = true;
             item.material = true;
         }

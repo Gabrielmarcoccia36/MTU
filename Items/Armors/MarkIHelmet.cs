@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Content.Items.Armors
+namespace MTU.Items.Armors
 {
     [AutoloadEquip(EquipType.Head)]
     class MarkIHelmet : ModItem

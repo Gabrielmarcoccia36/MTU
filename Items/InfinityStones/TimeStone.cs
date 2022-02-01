@@ -1,16 +1,15 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Content.Items.InfinityStones
+namespace MTU.Items.InfinityStones
 {
-    class SpaceStone : ModItem
+    class TimeStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Space Stone");
-            Tooltip.SetDefault("Anywhere, anytime");
+            DisplayName.SetDefault("Time Stone");
+            Tooltip.SetDefault("Time is in your hands");
         }
 
         public override void SetDefaults()
@@ -28,13 +27,11 @@ namespace MTU.Content.Items.InfinityStones
 
         public override bool UseItem(Player player)
         {
-            var mousePos = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
-            if (!Collision.SolidCollision(mousePos, player.width, player.height))
-            {
-                player.Teleport(mousePos);
-                player.AddBuff(8, 100);
-                return true;
-            }
+            player.AddBuff(2, 36000);
+            player.AddBuff(3, 36000);
+            player.AddBuff(6, 36000);
+            player.AddBuff(8, 36000);
+            player.AddBuff(104, 36000);
 
             return true;
         }

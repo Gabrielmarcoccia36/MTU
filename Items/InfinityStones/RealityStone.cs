@@ -2,14 +2,14 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Content.Items.InfinityStones
+namespace MTU.Items.InfinityStones
 {
-    class TimeStone : ModItem
+    class RealityStone : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Time Stone");
-            Tooltip.SetDefault("Time is in your hands");
+            DisplayName.SetDefault("Reality Stone");
+            Tooltip.SetDefault("Reality is in your hands");
         }
 
         public override void SetDefaults()
@@ -27,11 +27,7 @@ namespace MTU.Content.Items.InfinityStones
 
         public override bool UseItem(Player player)
         {
-            player.AddBuff(2, 36000);
-            player.AddBuff(3, 36000);
-            player.AddBuff(6, 36000);
-            player.AddBuff(8, 36000);
-            player.AddBuff(104, 36000);
+            player.AddBuff(18, 36000);
 
             return true;
         }

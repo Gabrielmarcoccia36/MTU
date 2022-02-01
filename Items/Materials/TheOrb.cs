@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Content.Items.Materials
+namespace MTU.Items.Materials
 {
     class TheOrb : ModItem
     {

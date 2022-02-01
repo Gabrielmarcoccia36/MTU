@@ -1,7 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MTU.Content.Items.Weapons
+namespace MTU.Items.Weapons
 {
 	public class bs : ModItem
 	{
