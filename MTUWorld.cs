@@ -1,4 +1,4 @@
-﻿using MTU.Items.Tiles;
+﻿using MTU.Content.Items.Tiles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Generation;
