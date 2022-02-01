@@ -22,7 +22,7 @@ namespace MTU.Items.Tiles
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Uranium");
 
-            AddMapEntry(Color.GreenYellow);
+            AddMapEntry(Color.GreenYellow, name);
 
             minPick = 35;
         }

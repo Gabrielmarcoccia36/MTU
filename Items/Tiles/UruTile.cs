@@ -22,7 +22,7 @@ namespace MTU.Items.Tiles
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Uru");
 
-            AddMapEntry(Color.DarkGoldenrod);
+            AddMapEntry(Color.DarkGoldenrod, name);
 
             minPick = 80;
         }

@@ -16,27 +16,19 @@ namespace MTU.Items.Tiles
             Main.tileShine[Type] = 1000;
 
 
-            drop = mod.ItemType("ExampleTileItem");
+            drop = mod.ItemType("Vibranium");
             dustType = DustID.Platinum;
 
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Vibranium");
 
-            AddMapEntry(Color.AliceBlue);
+            AddMapEntry(Color.MediumPurple, name);
 
             minPick = 50;
         }
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = fail ? 1 : 3;
-        }
-
-        public override bool Drop(int i, int j)
-        {
-            Tile t = Main.tile[i, j];
-            Item.NewItem(i * 16, j * 16, 16, 16, ModContent.ItemType<Items.Materials.Vibranium>());
-
-            return base.Drop(i, j);
         }
     }
 }

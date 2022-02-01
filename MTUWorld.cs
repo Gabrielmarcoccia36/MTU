@@ -1,14 +1,7 @@
-﻿using MTU.Items;
-using MTU.Items.Tiles;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using MTU.Items.Tiles;
 using System.Collections.Generic;
-using System.IO;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Generation;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.World.Generation;
@@ -17,6 +10,24 @@ namespace MTU
 {
 	class MTUWorld : ModWorld
 	{
+		private bool hasVibranium;
+		public override void Initialize()
+		{
+			hasVibranium = false;
+		}
+
+		public override void Load(TagCompound tag)
+		{
+			hasVibranium = tag.GetBool("HasVibranium");
+		}
+
+		public override TagCompound Save()
+		{
+			return new TagCompound
+			{
+				{"HasVibranium", hasVibranium }
+			};
+		}
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
@@ -35,30 +46,32 @@ namespace MTU
 
 		private void UraniumOres(GenerationProgress progress)
 		{
-			// progress.Message is the message shown to the user while the following code is running. Try to make your message clear. You can be a little bit clever, but make sure it is descriptive enough for troubleshooting purposes. 
 			progress.Message = "Generating Radioactive Materials";
 
-			// Ores are quite simple, we simply use a for loop and the WorldGen.TileRunner to place splotches of the specified Tile in the world.
-			// "6E-05" is "scientific notation". It simply means 0.00006 but in some ways is easier to read.
-			for (int k = 0; k < (int)((Main.maxTilesX * Main.maxTilesY) * 6E-05); k++)
+			for (int i = 0; i < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); i++)
 			{
-				// The inside of this for loop corresponds to one single splotch of our Ore.
-				// First, we randomly choose any coordinate in the world by choosing a random x and y value.
-				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY); // WorldGen.worldSurfaceLow is actually the highest surface tile. In practice you might want to use WorldGen.rockLayer or other WorldGen values.
-
-				// Then, we call WorldGen.TileRunner with random "strength" and random "steps", as well as the Tile we wish to place. Feel free to experiment with strength and step to see the shape they generate.
-				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(6, 12), WorldGen.genRand.Next(6, 12), ModContent.TileType<UraniumTile>());
-				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(6, 12), WorldGen.genRand.Next(6, 12), ModContent.TileType<UraniumTile>());
-				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(6, 12), WorldGen.genRand.Next(6, 12), ModContent.TileType<UraniumTile>());
-
-				// Alternately, we could check the tile already present in the coordinate we are interested. Wrapping WorldGen.TileRunner in the following condition would make the ore only generate in Snow.
-				// Tile tile = Framing.GetTileSafely(x, y);
-				// if (tile.active() && tile.type == TileID.SnowBlock)
-				// {
-				// 	WorldGen.TileRunner(.....);
-				// }
+				WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, (int)WorldGen.worldSurfaceHigh), WorldGen.genRand.Next(4, 7), WorldGen.genRand.Next(3, 7), ModContent.TileType<UraniumTile>());
 			}
+
+			for (int i = 0; i < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 8E-05); i++)
+			{
+				WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.worldSurfaceHigh, (int)WorldGen.rockLayerHigh), WorldGen.genRand.Next(4, 8), WorldGen.genRand.Next(4, 8), ModContent.TileType<UraniumTile>());
+			}
+
+			for (int i = 0; i < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.0002); i++)
+			{
+				WorldGen.TileRunner(WorldGen.genRand.Next(0, Main.maxTilesX), WorldGen.genRand.Next((int)WorldGen.rockLayerLow, Main.maxTilesY), WorldGen.genRand.Next(5, 9), WorldGen.genRand.Next(5, 9), ModContent.TileType<UraniumTile>());
+			}
+		}
+
+		public bool GetHasVibranium()
+        {
+			return hasVibranium;
+        }
+
+		public void SetHasVibranium(bool var)
+        {
+			hasVibranium = var;
 		}
 	}
 }
