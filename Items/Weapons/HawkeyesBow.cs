@@ -15,16 +15,16 @@ namespace MTU.Items.Weapons
         }
         public override void SetDefaults()
         {
-            item.width = 40;
-            item.height = 40;
+            item.width = 20;
+            item.height = 20;
             item.rare = ItemRarityID.LightPurple;
             item.value = Item.sellPrice(gold: 2);
 
-            item.useTime = 30;
-            item.useAnimation = 8;
+            item.useTime = 40;
+            item.useAnimation = 40;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.autoReuse = true;
-            item.UseSound = SoundID.Item11;
+            item.UseSound = SoundID.Item5;
 
             item.ranged = true;
             item.damage = 22;
@@ -64,6 +64,7 @@ namespace MTU.Items.Weapons
             }
             else
             {
+                item.shoot = AmmoID.Arrow;
                 return false;
             }
         }

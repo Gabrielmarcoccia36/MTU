@@ -21,6 +21,7 @@ namespace MTU.Items.Materials
             item.useTime = 10;
             item.useAnimation = 10;
             item.material = true;
+            item.rare = ItemRarityID.Pink;
         }
         public override void AddRecipes()
         {
