@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MTU.Items.Materials;
 
 namespace MTU.Items.Armors
 {
@@ -27,11 +28,19 @@ namespace MTU.Items.Armors
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.IronBar, 30);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            ModRecipe recipe1 = new ModRecipe(mod);
+            recipe1.AddIngredient(ItemID.IronBar, 30);
+            recipe1.AddIngredient(ModContent.ItemType<ArcReactorI>(), 1);
+            recipe1.AddTile(TileID.Anvils);
+            recipe1.SetResult(this);
+            recipe1.AddRecipe();
+
+            ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ItemID.LeadBar, 30);
+            recipe2.AddIngredient(ModContent.ItemType<ArcReactorI>(), 1);
+            recipe2.AddTile(TileID.Anvils);
+            recipe2.SetResult(this);
+            recipe2.AddRecipe();
         }
     }
 }
