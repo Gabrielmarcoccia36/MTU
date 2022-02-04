@@ -6,6 +6,7 @@ using MTU.Items.Weapons;
 
 namespace MTU.Items.Accesories
 {
+    [AutoloadEquip(EquipType.Back)]
     class HawkeyesQuiver : ModItem
     {
         public override void SetStaticDefaults()
