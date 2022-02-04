@@ -15,19 +15,20 @@ namespace MTU.Items.Weapons
         }
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
+            item.width = 24;
+            item.height = 50;
             item.rare = ItemRarityID.LightPurple;
             item.value = Item.sellPrice(gold: 2);
 
-            item.useTime = 40;
+            item.useTime = 30;
             item.useAnimation = 40;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.autoReuse = true;
             item.UseSound = SoundID.Item5;
 
             item.ranged = true;
-            item.damage = 22;
+            item.damage = 28;
+            item.crit = 15;
             item.knockBack = 5f;
             item.noMelee = true;
 
@@ -40,6 +41,8 @@ namespace MTU.Items.Weapons
         {
             if (ModContent.GetInstance<PlayerOne>().GetHasHawkQuiver() && type == ProjectileID.WoodenArrowFriendly)
             {
+                item.damage = 45;
+
                 int var = Main.rand.Next(0, 3);
                 Vector2 vec = new Vector2(speedX, speedY);
 
@@ -64,8 +67,21 @@ namespace MTU.Items.Weapons
             }
             else
             {
+                item.damage = 28;
                 item.shoot = AmmoID.Arrow;
                 return false;
+            }
+        }
+
+        public override bool ConsumeAmmo(Player player)
+        {
+            if (ModContent.GetInstance<PlayerOne>().GetHasHawkQuiver())
+            {
+                return Main.rand.NextFloat() >= 0.15f;
+            }
+            else
+            {
+                return base.ConsumeAmmo(player);
             }
         }
 

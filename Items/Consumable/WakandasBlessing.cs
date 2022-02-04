@@ -17,8 +17,8 @@ namespace MTU.Items.Consumable
 
         public override void SetDefaults()
         {
-            item.width = 25;
-            item.height = 25;
+            item.width = 24;
+            item.height = 40;
             item.maxStack = 1;
             item.consumable = true;
             item.value = Item.sellPrice(gold: 15);

@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using MTU.Players;
+using MTU.Items.Weapons;
 
 namespace MTU.Items.Accesories
 {
@@ -22,19 +23,22 @@ namespace MTU.Items.Accesories
 
             
         }
-
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.rangedDamageMult += 0.15f;
+            player.rangedDamageMult += 0.10f;
             player.rangedCrit += 5;
+            ModContent.GetInstance<HawkeyesBow>().item.shootSpeed *= 2;
             ModContent.GetInstance<PlayerOne>().hasHawkQuiver = true;
         }
-
-        
-
         public override void AddRecipes()
         {
-
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.MagicQuiver, 1);
+            recipe.AddIngredient(ItemID.MeteoriteBar, 10);
+            recipe.AddIngredient(ItemID.HellstoneBar, 10);
+            recipe.AddTile(ItemID.Hellforge);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

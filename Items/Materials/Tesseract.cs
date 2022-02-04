@@ -4,18 +4,18 @@ using Terraria.ModLoader;
 
 namespace MTU.Items.Materials
 {
-    class TheOrb : ModItem
+    class Tesseract : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Orb");
-            Tooltip.SetDefault("Feels odd to the touch");
+            DisplayName.SetDefault("Tesseract");
+            Tooltip.SetDefault("Space bends to its will");
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 22;
+            item.width = 30;
+            item.height = 30;
             item.maxStack = 1;
             item.value = Item.sellPrice(platinum: 10);
             item.rare = ItemRarityID.Cyan;
