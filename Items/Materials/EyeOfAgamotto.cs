@@ -1,21 +1,21 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using MTU.Players;
 
 namespace MTU.Items.Materials
 {
-    class Aether : ModItem
+    class EyeOfAgamotto : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aether");
-            Tooltip.SetDefault("It looks alive");
+            DisplayName.SetDefault("Eye of Agamotto");
+            Tooltip.SetDefault("Most powerful tool of a mystic arts practitioner");
         }
+
         public override void SetDefaults()
         {
-            item.width = 23;
-            item.height = 23;
+            item.width = 30;
+            item.height = 30;
             item.maxStack = 1;
             item.value = Item.sellPrice(platinum: 10);
             item.rare = ItemRarityID.Cyan;
@@ -25,7 +25,10 @@ namespace MTU.Items.Materials
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<PlayerOne>().hasAether = true;
+            player.AddBuff(2, 2);
+            player.AddBuff(3, 2);
+            player.AddBuff(6, 2);
+            player.AddBuff(104, 2);
         }
     }
 }

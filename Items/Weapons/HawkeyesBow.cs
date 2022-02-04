@@ -21,7 +21,7 @@ namespace MTU.Items.Weapons
             item.value = Item.sellPrice(gold: 2);
 
             item.useTime = 30;
-            item.useAnimation = 40;
+            item.useAnimation = 30;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.autoReuse = true;
             item.UseSound = SoundID.Item5;
@@ -41,10 +41,7 @@ namespace MTU.Items.Weapons
         {
             if (ModContent.GetInstance<PlayerOne>().GetHasHawkQuiver() && type == ProjectileID.WoodenArrowFriendly)
             {
-                item.damage = 45;
-
-                int var = Main.rand.Next(0, 3);
-                Vector2 vec = new Vector2(speedX, speedY);
+                int var = Main.rand.Next(0, 4);
 
                 if (var == 0)
                 {
@@ -67,9 +64,8 @@ namespace MTU.Items.Weapons
             }
             else
             {
-                item.damage = 28;
                 item.shoot = AmmoID.Arrow;
-                return false;
+                return true;
             }
         }
 

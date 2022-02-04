@@ -18,7 +18,7 @@ namespace MTU.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 20;
+			item.damage = 5;
 			item.ranged = true;
 			item.width = 50;
 			item.height = 18;
@@ -34,8 +34,8 @@ namespace MTU.Items.Weapons
 			item.rare = ItemRarityID.Green; // Sets the item's rarity.
 			item.UseSound = SoundID.Item34;
 			item.autoReuse = true;
-			item.shoot = ModContent.ProjectileType<MarkIFlamethrowerProjectile>();
-			item.shootSpeed = 6f; // How fast the flames will travel. Vanilla Flamethrower uses 7f and consequentially has less reach. item.shootSpeed and projectile.timeLeft together control the range.
+			item.shoot = ProjectileID.Flames;
+			item.shootSpeed = 2f; // How fast the flames will travel. Vanilla Flamethrower uses 7f and consequentially has less reach. item.shootSpeed and projectile.timeLeft together control the range.
 			item.mana = 10;
 		}
 
@@ -51,6 +51,15 @@ namespace MTU.Items.Weapons
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
+			if (player.HasBuff(mod.BuffType("MarkIBuff")))
+            {
+				item.mana = 0;
+            }
+            else
+            {
+				item.mana = 10;
+            }
+
 			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 54f; //This gets the direction of the flame projectile, makes its length to 1 by normalizing it. It then multiplies it by 54 (the item width) to get the position of the tip of the flamethrower.
 			if (Collision.CanHit(position, 6, 6, position + muzzleOffset, 6, 6))
 			{

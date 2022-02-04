@@ -15,7 +15,7 @@ namespace MTU.Items.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             player.rocketBoots = 1;
-            player.moveSpeed -= 0.25f;
+            player.moveSpeed -= 0.45f;
             player.statDefense += 4;
         }
     }

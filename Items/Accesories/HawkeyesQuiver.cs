@@ -29,6 +29,7 @@ namespace MTU.Items.Accesories
             player.rangedDamageMult += 0.10f;
             player.rangedCrit += 5;
             ModContent.GetInstance<HawkeyesBow>().item.shootSpeed *= 2;
+            ModContent.GetInstance<HawkeyesBow>().item.damage = 45;
             ModContent.GetInstance<PlayerOne>().hasHawkQuiver = true;
         }
         public override void AddRecipes()
