@@ -24,7 +24,7 @@ namespace MTU.Items.Projectiles
             projectile.penetrate = -1;
 
             projectile.ignoreWater = true;
-            projectile.tileCollide = true;
+            projectile.tileCollide = false;
 
             aiType = ProjectileID.LightDisc;
         }
