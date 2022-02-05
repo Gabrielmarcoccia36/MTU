@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -59,6 +60,23 @@ namespace MTU.Items.Weapons
         private int _charge = 0;
         private bool _hold = true;
 
+        /// <summary>Simple struct for holding a lightning value.</summary>
+        public struct LightningData
+        {
+            internal Vector2 Offset;
+            internal float Rotation;
+            internal float Alpha;
+
+            public LightningData(Vector2 off, float rot, float alp)
+            {
+                Offset = off;
+                Rotation = rot;
+                Alpha = alp;
+            }
+        }
+
+        private List<LightningData> lightning = new List<LightningData>();
+
         public override void SetDefaults()
         {
             projectile.width = 36;
@@ -102,7 +120,7 @@ namespace MTU.Items.Weapons
                     {
                         Vector2 dir = projectile.DirectionTo(Main.MouseWorld).RotatedByRandom(0.02f);
 
-                        int proj = Projectile.NewProjectile(projectile.position + dir * 60, Vector2.Zero, ModContent.ProjectileType<MjolnirLightning>(), projectile.damage, 2f, projectile.owner);
+                        int proj = Projectile.NewProjectile(projectile.position + dir * 60 - new Vector2(0, 16), Vector2.Zero, ModContent.ProjectileType<MjolnirLightning>(), projectile.damage, 2f, projectile.owner);
                         Projectile pr = Main.projectile[proj];
                         pr.rotation = dir.ToRotation();
 
@@ -116,6 +134,9 @@ namespace MTU.Items.Weapons
 
                 projectile.Kill();
             }
+
+            if (_charge >= 50 && Main.rand.NextFloat() <= 0.25f) //Dust when charged
+                Dust.NewDustPerfect(projectile.position - new Vector2(0, 16), DustID.Electric, new Vector2(0, 5).RotatedByRandom(MathHelper.PiOver2));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -127,18 +148,69 @@ namespace MTU.Items.Weapons
 
             spriteBatch.Draw(tex, drawPos, null, Lighting.GetColor((int)projectile.position.X / 16, (int)projectile.position.Y / 16), rotation, origin, Vector2.One, SpriteEffects.None, 0f); //Draw base projectile
 
-            if (_charge > 50f) //Draw empowered mjolnir (shows charge)
-            {
-                Vector2 off = new Vector2(-tex.Width, tex.Height).RotatedBy(rotation) / 2f;
+            if (_charge >= 50f) //Draw empowered mjolnir (shows charge)
+                DrawAfterimages(tex, drawPos, spriteBatch, rotation);
 
-                float Sine(float strength = 1f) => 1 + ((float)Math.Sin((_charge - 50f) * 0.02f) * 0.2f * strength);
-                Vector2 Shake() => new Vector2(Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(-1f, 1f));
-
-                spriteBatch.Draw(tex, drawPos - off + Shake(), null, Color.White * 0.5f, rotation, tex.Size() / 2f, Vector2.One * Sine(), SpriteEffects.None, 0f);
-                spriteBatch.Draw(tex, drawPos - off + Shake(), null, Color.White * 0.25f, rotation, tex.Size() / 2f, Vector2.One * Sine(2f), SpriteEffects.None, 0f);
-            }
+            DrawLightning(spriteBatch); //Draw lightning
             return false;
         }
+
+        /// <summary>Draws the lightning that strikes Mjolnir as it charges up</summary>
+        private void DrawLightning(SpriteBatch spriteBatch)
+        {
+            Texture2D tex = Main.projectileTexture[ModContent.ProjectileType<MjolnirLightning>()];
+
+            if (_charge % 4 == 0) //Make new lightning list
+            {
+                lightning.Clear();
+
+                const int MainRepeats = 3;
+                for (int k = 0; k < MainRepeats; ++k)
+                {
+                    float beginRotation = Main.rand.NextFloat(-0.35f, 0.35f);
+                    Vector2 start = new Vector2(0, -60).RotatedBy(beginRotation) - new Vector2(-Main.rand.NextFloat(-1f, 1f), 0);
+                    Vector2 direction = new Vector2(0, -56);
+                    Vector2 constDir = direction;
+
+                    const int Repeats = 10;
+                    for (int i = 0; i < Repeats; ++i)
+                    {
+                        lightning.Add(new LightningData(start, direction.ToRotation(), 1 - ((i + 1f) / Repeats)));
+
+                        Vector2 newDir = direction.RotatedByRandom(MathHelper.PiOver4 / 2f);
+                        if (Math.Abs(newDir.ToRotation() - constDir.ToRotation()) > MathHelper.PiOver4 / 4.0)
+                            newDir = constDir;
+
+                        direction = newDir;
+                        start += direction;
+                    }
+                }
+            }
+
+            float mainAlpha = 1f; //Fadein
+            if (_charge <= 50f)
+                mainAlpha = _charge / 50f;
+
+            foreach (var item in lightning) //Draw the lightning
+            {
+                Vector2 drawPos = projectile.position + item.Offset - Main.screenPosition;
+                spriteBatch.Draw(tex, drawPos, null, Color.White * item.Alpha * mainAlpha, item.Rotation, tex.Size() / 2f, new Vector2(1f, 0.8f), SpriteEffects.None, 0f);
+            }
+        }
+
+        /// <summary>Draws subtle afterimage when charged up.</summary>
+        private void DrawAfterimages(Texture2D tex, Vector2 drawPos, SpriteBatch spriteBatch, float rotation)
+        {
+            Vector2 off = new Vector2(-tex.Width, tex.Height).RotatedBy(rotation) / 2f;
+
+            float Sine(float strength = 1f) => 1 + ((float)Math.Sin((_charge - 50f) * 0.02f) * 0.2f * strength);
+            Vector2 Shake() => new Vector2(Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(-1f, 1f));
+
+            spriteBatch.Draw(tex, drawPos - off + Shake(), null, Color.White * 0.5f, rotation, tex.Size() / 2f, Vector2.One * Sine(), SpriteEffects.None, 0f);
+            spriteBatch.Draw(tex, drawPos - off + Shake(), null, Color.White * 0.25f, rotation, tex.Size() / 2f, Vector2.One * Sine(2f), SpriteEffects.None, 0f);
+        }
+
+        public override void Kill(int timeLeft) => lightning.Clear();
     }
 
     public class MjolnirLightning : ModProjectile
@@ -151,8 +223,8 @@ namespace MTU.Items.Weapons
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 30;
+            projectile.width = 50;
+            projectile.height = 50;
             projectile.friendly = true;
             projectile.penetrate = -1;
             projectile.tileCollide = false;
@@ -186,13 +258,16 @@ namespace MTU.Items.Weapons
 
             if (Main.rand.NextFloat() <= 0.05f) //Dust
                 Dust.NewDustPerfect(projectile.Center, DustID.Electric, direction.RotatedByRandom(MathHelper.PiOver4) * Main.rand.NextFloat(7f, 14.5f));
+
+            Lighting.AddLight(projectile.Center, Color.White.ToVector3() * 0.2f);
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) => target.AddBuff(BuffID.Electrified, 30); //Inflict electrified on enemies
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
-            return Collision.CheckAABBvLineCollision(targetHitbox.Location.ToVector2(), targetHitbox.Size(), projectile.position - direction * 30, projectile.position + direction * 30);
+            Vector2 dir = direction * 30;
+            return Collision.CheckAABBvLineCollision(targetHitbox.Location.ToVector2(), targetHitbox.Size(), projectile.position - dir, projectile.position + dir);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -200,7 +275,7 @@ namespace MTU.Items.Weapons
             Texture2D tex = Main.projectileTexture[projectile.type]; //Draw info
             Vector2 drawPos = projectile.Center - Main.screenPosition;
 
-            spriteBatch.Draw(tex, drawPos, null, Color.White, projectile.rotation, tex.Size() / 2f, Vector2.One, SpriteEffects.None, 0f); //Draw base item
+            spriteBatch.Draw(tex, drawPos, null, Color.White, projectile.rotation, tex.Size() / 2f, Vector2.One, SpriteEffects.None, 0f); //Draw base projectile
             return false;
         }
     }
