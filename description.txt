@@ -10,7 +10,8 @@ We plan on having:
 - Enemies
 - Bosses
 - New ores
-- Infinity Saga Items (Probably way to OP lol)
+- Infinity Saga Items
 
 Developers: Nkaiw0rld, Lexnoss
 Artist: Lexnoss
+Contributor: GabeHasWon
