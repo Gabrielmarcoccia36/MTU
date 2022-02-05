@@ -3,13 +3,41 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using MTU.Items.Materials;
+using MTU.Items.Buffs;
 using Microsoft.Xna.Framework;
 
 namespace MTU.Players
 {
     public class PlayerOne : ModPlayer
     {
-        public bool hasHawkQuiver, hasAether, hasCaptain;
+        public bool hasHawkQuiver, hasAether, hasCaptain, hasChaosBuff;
+
+        public override void Initialize()
+        {
+            hasChaosBuff = false;
+        }
+
+        public override void Load(TagCompound tag)
+        {
+            hasChaosBuff = tag.GetBool("hasChaosBuff");
+        }
+
+        public override TagCompound Save()
+        {
+            return new TagCompound
+            {
+                {"hasChaosBuff", hasChaosBuff }
+            };
+
+        }
+
+        public override void PreUpdate()
+        {
+            if (hasChaosBuff)
+            {
+                player.AddBuff(ModContent.BuffType<ChaosVessel>(), 2);
+            }
+    }
 
         public bool GetHasHawkQuiver()
         {
