@@ -9,7 +9,7 @@ namespace MTU.Players
 {
     public class PlayerOne : ModPlayer
     {
-        public bool hasHawkQuiver, hasAether;
+        public bool hasHawkQuiver, hasAether, hasCaptain;
 
         public bool GetHasHawkQuiver()
         {

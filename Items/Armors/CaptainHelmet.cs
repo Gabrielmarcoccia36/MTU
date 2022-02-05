@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MTU.Players;
 using MTU.Items.Buffs;
 
 namespace MTU.Items.Armors
@@ -31,8 +32,8 @@ namespace MTU.Items.Armors
 
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "Melee Damage increased";
-            //player.AddBuff(mod.BuffType("MarkIBuff"), 2);
+            player.setBonus = "Shields Damage increased";
+            ModContent.GetInstance<PlayerOne>().hasCaptain = true;
             base.UpdateArmorSet(player);
         }
 
