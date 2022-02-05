@@ -10,23 +10,27 @@ namespace MTU
 {
 	class MTUWorld : ModWorld
 	{
-		private bool hasVibranium;
+		private bool hasVibranium, killedSkeletronPrime;
 		public override void Initialize()
 		{
 			hasVibranium = false;
+			killedSkeletronPrime = false;
 		}
 
 		public override void Load(TagCompound tag)
 		{
-			hasVibranium = tag.GetBool("HasVibranium");
+			hasVibranium = tag.GetBool("hasVibranium");
+			killedSkeletronPrime = tag.GetBool("killedSkeletronPrime");
 		}
 
 		public override TagCompound Save()
 		{
 			return new TagCompound
 			{
-				{"HasVibranium", hasVibranium }
+				{"hasVibranium", hasVibranium },
+				{"killedSkeletronPrime", killedSkeletronPrime }
 			};
+
 		}
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
@@ -72,6 +76,16 @@ namespace MTU
 		public void SetHasVibranium(bool var)
         {
 			hasVibranium = var;
+		}
+
+		public bool GetKilledSkeletronPrime()
+		{
+			return killedSkeletronPrime;
+		}
+
+		public void SetKilledSkeletronPrime(bool var)
+		{
+			killedSkeletronPrime = var;
 		}
 	}
 }

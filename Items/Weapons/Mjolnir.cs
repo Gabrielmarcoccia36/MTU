@@ -167,7 +167,7 @@ namespace MTU.Items.Weapons
                 const int MainRepeats = 3;
                 for (int k = 0; k < MainRepeats; ++k)
                 {
-                    float beginRotation = Main.rand.NextFloat(-0.35f, 0.35f);
+                    float beginRotation = Main.rand.NextFloat(-0.5f, 0.5f);
                     Vector2 start = new Vector2(0, -60).RotatedBy(beginRotation) - new Vector2(-Main.rand.NextFloat(-1f, 1f), 0);
                     Vector2 direction = new Vector2(0, -56);
                     Vector2 constDir = direction;

@@ -19,8 +19,8 @@ namespace MTU.Items.InfinityStones
             item.height = 14;
             item.maxStack = 1;
             item.value = Item.sellPrice(platinum: 10);
-            item.rare = 11;
-            item.useStyle = 1;
+            item.rare = ItemRarityID.Purple;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.useTime = 40;
             item.useAnimation = 20;
             item.material = true;

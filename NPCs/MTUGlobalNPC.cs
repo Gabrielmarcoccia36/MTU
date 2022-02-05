@@ -19,22 +19,16 @@ namespace MTU.NPCs
                 }
             }
 
-            if(npc.position.Y >= Main.maxTilesY - 200)
+            if (npc.type == NPCID.SkeletronPrime && !ModContent.GetInstance<MTUWorld>().GetKilledSkeletronPrime())
+            {
+                ModContent.GetInstance<MTUWorld>().SetKilledSkeletronPrime(true);
+            }
+
+            if ((npc.position.Y / 16f >= Main.maxTilesY - 200 || npc.position.Y >= (Main.maxTilesY - 200) * 16) && ModContent.GetInstance<MTUWorld>().GetKilledSkeletronPrime())
             {
                 if (Main.rand.Next(5) == 0)
                 {
-                    if (Main.rand.Next(3) == 0)
-                    {
-                        Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosParticle>(), 2);
-                    }
-                    else if (Main.rand.Next(6) == 0)
-                    {
-                        Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosParticle>(), 3);
-                    }
-                    else
-                    {
-                        Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosParticle>(), 1);
-                    }
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosParticle>(), Main.rand.Next(3));
                 }
             }
         }
