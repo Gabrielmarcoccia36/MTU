@@ -9,7 +9,7 @@ namespace MTU.Items.Materials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Orb");
-            Tooltip.SetDefault("Feels odd to the touch");
+            Tooltip.SetDefault("Feels odd to touch");
         }
 
         public override void SetDefaults()
