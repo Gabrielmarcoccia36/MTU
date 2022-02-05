@@ -62,9 +62,9 @@ namespace MTU.Items.Weapons
                 item.useStyle = ItemUseStyleID.SwingThrow;
                 item.useTime = 20;
                 item.useAnimation = 8;
-                if (ModContent.GetInstance<PlayerOne>().hasCaptain == true)
+                if (player.GetModPlayer<PlayerOne>().hasCaptain == true)
                 {
-                    item.damage = 130;
+                    item.damage = 95;
                 }
                 else
                 {

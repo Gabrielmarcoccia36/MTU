@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using MTU.Players;
-using MTU.Items.Buffs;
+using MTU.Items.Weapons;
 
 namespace MTU.Items.Armors
 {
@@ -33,7 +33,7 @@ namespace MTU.Items.Armors
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = "Shields Damage increased";
-            ModContent.GetInstance<PlayerOne>().hasCaptain = true;
+            player.GetModPlayer<PlayerOne>().hasCaptain = true;
             base.UpdateArmorSet(player);
         }
 

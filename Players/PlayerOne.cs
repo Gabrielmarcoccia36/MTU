@@ -24,5 +24,9 @@ namespace MTU.Players
                 Main.projectile[proj].timeLeft = 3;
             }
         }
+        public override void ResetEffects()
+        {
+            hasCaptain = false;
+        }
     }
 }
