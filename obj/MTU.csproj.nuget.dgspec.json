@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabriel\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj": {}
+    "C:\\Users\\GABE\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabriel\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj": {
+    "C:\\Users\\GABE\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabriel\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj",
+        "projectUniqueName": "C:\\Users\\GABE\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj",
         "projectName": "MTU",
-        "projectPath": "C:\\Users\\Gabriel\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj",
-        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabriel\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\obj\\",
+        "projectPath": "C:\\Users\\GABE\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\MTU.csproj",
+        "packagesPath": "C:\\Users\\GABE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GABE\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\MTU\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\GABE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net45"
@@ -42,8 +47,7 @@
               "target": "Package",
               "version": "[0.1.*, )"
             }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          }
         }
       }
     }

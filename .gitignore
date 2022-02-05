@@ -51,3 +51,8 @@ Mkfile.old
 dkms.conf
 *.csproj.user
 *.cache
+/.vs/MTU/v16
+/.vs
+/bin/Debug/net45
+/obj/Debug/net45
+/obj/Release/net45
