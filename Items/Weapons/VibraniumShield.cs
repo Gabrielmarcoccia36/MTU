@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using MTU.Items.Projectiles;
 using MTU.Items.Materials;
+using MTU.Players;
 using Microsoft.Xna.Framework;
 
 namespace MTU.Items.Weapons
@@ -61,7 +62,14 @@ namespace MTU.Items.Weapons
                 item.useStyle = ItemUseStyleID.SwingThrow;
                 item.useTime = 20;
                 item.useAnimation = 8;
-                item.damage = 65;
+                if (player.GetModPlayer<PlayerOne>().hasCaptain == true)
+                {
+                    item.damage = 95;
+                }
+                else
+                {
+                    item.damage = 65;
+                }
                 item.knockBack = 2f;
                 item.shoot = ModContent.ProjectileType<VibraniumShieldProjectile>();
             }

@@ -9,7 +9,7 @@ namespace MTU.Players
 {
     public class PlayerOne : ModPlayer
     {
-        public bool hasHawkQuiver, hasAether;
+        public bool hasHawkQuiver, hasAether, hasCaptain;
 
         public bool GetHasHawkQuiver()
         {
@@ -23,6 +23,10 @@ namespace MTU.Players
                 int proj = Projectile.NewProjectile(npc.position, new Vector2(0,0), ProjectileID.Bomb, 7, 0, 1);
                 Main.projectile[proj].timeLeft = 3;
             }
+        }
+        public override void ResetEffects()
+        {
+            hasCaptain = false;
         }
     }
 }
