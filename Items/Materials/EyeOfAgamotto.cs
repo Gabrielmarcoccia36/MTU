@@ -9,7 +9,7 @@ namespace MTU.Items.Materials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Eye of Agamotto");
-            Tooltip.SetDefault("Most powerful tool of a mystic arts practitioner");
+            Tooltip.SetDefault("Most powerful tool of a mystic arts practitioner\nGrants several buffs when worn");
         }
 
         public override void SetDefaults()
