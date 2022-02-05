@@ -15,7 +15,7 @@ namespace MTU.Items.Weapons
 
         public override void SetDefaults()
         {
-            item.damage = 120;
+            item.damage = 250;
             item.magic = true;
             item.mana = 5;
             item.width = 35;

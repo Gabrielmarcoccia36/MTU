@@ -10,7 +10,7 @@ namespace MTU.Items.Weapons
 {
     public class Mjolnir : ModItem
     {
-        public override void SetStaticDefaults() => Tooltip.SetDefault("'You are worthy!'");
+        public override void SetStaticDefaults() => Tooltip.SetDefault("Hold right-click for lightning attack\n'You are worthy!'");
 
         public override void SetDefaults()
         {
@@ -23,7 +23,7 @@ namespace MTU.Items.Weapons
             item.crit = 6;
             item.knockBack = 6;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.damage = 250;
+            item.damage = 120;
 
             item.useTime = 20;
             item.useAnimation = 20;
