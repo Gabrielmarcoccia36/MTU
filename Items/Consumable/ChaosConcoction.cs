@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using MTU.Players;
+using MTU.Items.Materials;
 
 namespace MTU.Items.Consumable
 {
@@ -41,6 +42,16 @@ namespace MTU.Items.Consumable
             {
                 return false;
             }
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<ChaosParticle>(), 60);
+            recipe.AddIngredient(ItemID.Bottle, 1);
+            recipe.AddTile(TileID.Bottles);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

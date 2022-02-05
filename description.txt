@@ -15,3 +15,21 @@ We plan on having:
 Developers: Nkaiw0rld, Lexnoss
 Artist: Lexnoss
 Contributor: GabeHasWon
+
+V0.1
+This is the very first version of the mod. Please don't risk any existing world/character as there may be bugs.
+We encourage you to try Mjolnir and/or StormBreaker! (Huge thanks to GabeHasWon)
+
+This version has:
+6 weapons
+2 armor sets
+2 accesories
+3 ores (2 with tiles)
+2 consumables
+
+New worlds will generate uranium.
+The twins and the destroyer have a chance of 1/3 to drop Wakanda's Blessing. When consumed, it will bless the world with vibranium.
+After defeating skeletron prime, enemies in hell will drop chaos particles.
+Golem has a chance to drop Mjolnir, Duke Fishron drops stormbreaker, and Cultist drops Eye of Agamotto.
+
+For any feedback, feel free to message me on discord: Nkaiw0rld#3283
