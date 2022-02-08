@@ -114,9 +114,8 @@ namespace MTU.Players
                 {
                     hasResilientBuff = true;
                 }
-
-                tryMutant = true;
             }
+            tryMutant = true;
         }
     }
 }
