@@ -6,12 +6,12 @@ using MTU.Items.Materials;
 
 namespace MTU.Items.Consumable
 {
-    class ChaosConcoction : ModItem
+    class SuperSoldierSerum : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Concotion");
-            Tooltip.SetDefault("Consume at your own risk!");
+            DisplayName.SetDefault("Super Soldier Serum");
+            Tooltip.SetDefault("Used to be a very painful procedure");
         }
 
         public override void SetDefaults()
@@ -34,8 +34,8 @@ namespace MTU.Items.Consumable
         {
             if (!player.GetModPlayer<PlayerOne>().hasChaosBuff && !player.GetModPlayer<PlayerOne>().hasSoldierBuff && !player.GetModPlayer<PlayerOne>().hasAgentBuff)
             {
-                Main.NewText(player.name + " is now a Chaos Vessel!");
-                player.GetModPlayer<PlayerOne>().hasChaosBuff = true;
+                Main.NewText(player.name + " is now a Super Soldier!");
+                player.GetModPlayer<PlayerOne>().hasSoldierBuff = true;
                 return true;
             }
             else

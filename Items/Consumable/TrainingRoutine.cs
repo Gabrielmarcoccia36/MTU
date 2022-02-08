@@ -6,12 +6,12 @@ using MTU.Items.Materials;
 
 namespace MTU.Items.Consumable
 {
-    class ChaosConcoction : ModItem
+    class TrainingRoutine : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Concotion");
-            Tooltip.SetDefault("Consume at your own risk!");
+            DisplayName.SetDefault("Training Routine");
+            Tooltip.SetDefault("Practice makes the master");
         }
 
         public override void SetDefaults()
@@ -34,8 +34,8 @@ namespace MTU.Items.Consumable
         {
             if (!player.GetModPlayer<PlayerOne>().hasChaosBuff && !player.GetModPlayer<PlayerOne>().hasSoldierBuff && !player.GetModPlayer<PlayerOne>().hasAgentBuff)
             {
-                Main.NewText(player.name + " is now a Chaos Vessel!");
-                player.GetModPlayer<PlayerOne>().hasChaosBuff = true;
+                Main.NewText(player.name + " became a Secret Agent!");
+                player.GetModPlayer<PlayerOne>().hasAgentBuff = true;
                 return true;
             }
             else
@@ -48,7 +48,7 @@ namespace MTU.Items.Consumable
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<ChaosParticle>(), 60);
-            recipe.AddIngredient(ItemID.Bottle, 1);
+            recipe.AddIngredient(ItemID.Book, 1);
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);
             recipe.AddRecipe();

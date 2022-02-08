@@ -9,7 +9,7 @@ namespace MTU.Items.Materials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Uranium");
-            Tooltip.SetDefault("Non radioactive for all mighty terraria players");
+            Tooltip.SetDefault("It doesn't seem harmful...");
         }
 
         public override void SetDefaults()

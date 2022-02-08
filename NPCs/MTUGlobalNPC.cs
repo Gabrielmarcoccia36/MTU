@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using MTU.Items.Consumable;
 using MTU.Items.Materials;
 using MTU.Items.Weapons;
+using MTU.Players;
 
 namespace MTU.NPCs
 {
@@ -12,12 +13,32 @@ namespace MTU.NPCs
     {
         public override void NPCLoot(NPC npc)
         {
-            // Either of the mechanicals = vibranium
+            ModContent.GetInstance<PlayerOne>().enemiesKilled++;
+            Main.NewText(ModContent.GetInstance<PlayerOne>().enemiesKilled);
+            
             if (npc.type == NPCID.TheDestroyer || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
             {
+                // Either of the mechanicals = vibranium
                 if (Main.rand.Next(2) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<WakandasBlessing>());
+                }
+
+                // destroyer = Training Routine
+                if (npc.type == NPCID.TheDestroyer)
+                {
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TrainingRoutine>());
+                    }
+                }
+                // twins = Super Soldier Serum
+                if (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
+                {
+                    if (Main.rand.Next(2) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<SuperSoldierSerum>());
+                    }
                 }
             }
 
