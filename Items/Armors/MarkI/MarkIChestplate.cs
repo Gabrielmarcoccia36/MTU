@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using MTU.Items.Materials;
 
-namespace MTU.Items.Armors
+namespace MTU.Items.Armors.MarkI
 {
     [AutoloadEquip(EquipType.Body)]
     class MarkIChestplate : ModItem

@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MTU.Players;
 
 namespace MTU.Items.Buffs
 {
@@ -9,12 +10,12 @@ namespace MTU.Items.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Resilient Mutant");
-            Description.SetDefault("You posses resilient mutant genes\nSlight increase in defense");
+            Description.SetDefault("You posses resilient mutant genes\n" + (int)ModContent.GetInstance<PlayerOne>().mutDefense + "= defense\nKilling a boss for the first time will upgrade this buff");
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.statDefense += 5;
+            player.statDefense += (int)ModContent.GetInstance<PlayerOne>().mutDefense;
         }
     }
 }

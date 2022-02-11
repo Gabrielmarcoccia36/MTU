@@ -11,7 +11,11 @@ namespace MTU.Players
     {
         public bool hasHawkQuiver, hasAether, hasCaptain, hasChaosBuff, hasSoldierBuff, hasAgentBuff;
         public bool tryMutant, hasFrenziedBuff, hasSwiftBuff, hasResilientBuff;
-        public int enemiesKilled;
+        public float mutSpeed, mutDefense, mutDamage;
+
+        // 0: king slime  1: eye  2: EOF or Brain  3: Queen Bee  4: Skeletron  5: WoF  6: Twins  7: Destroyer 
+        // 8: Skeletron Prime  9: Plantera  10: Golem  11: Fishron 12: cultist  13: moonlord
+        public int[] bossesKilled;
 
         public override void Initialize()
         {
@@ -22,6 +26,10 @@ namespace MTU.Players
             hasFrenziedBuff = false;
             hasSwiftBuff = false;
             hasResilientBuff = false;
+            mutSpeed = 1.1f;
+            mutDefense = 5;
+            mutDamage = 1.05f;
+            bossesKilled = new [] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         }
 
         public override void Load(TagCompound tag)
@@ -33,6 +41,10 @@ namespace MTU.Players
             hasFrenziedBuff = tag.GetBool("hasFrenziedBuff");
             hasSwiftBuff = tag.GetBool("hasSwiftBuff");
             hasResilientBuff = tag.GetBool("hasResilientBuff");
+            mutSpeed = tag.GetFloat("mutSpeed");
+            mutDefense = tag.GetFloat("mutDefense");
+            mutDamage = tag.GetFloat("mutDamage");
+            bossesKilled = tag.GetIntArray("bossesKilled");
         }
 
         public override TagCompound Save()
@@ -45,7 +57,11 @@ namespace MTU.Players
                 {"isMutant", tryMutant },
                 {"hasFrenziedBuff", hasFrenziedBuff },
                 {"hasSwiftBuff", hasSwiftBuff },
-                {"hasResilientBuff", hasResilientBuff }
+                {"hasResilientBuff", hasResilientBuff },
+                {"mutSpeed", mutSpeed },
+                {"mutDefense", mutDefense },
+                {"mutDamage", mutDamage },
+                {"bossesKilled", bossesKilled }
             };
 
         }

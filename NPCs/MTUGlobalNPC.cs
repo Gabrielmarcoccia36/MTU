@@ -13,9 +13,9 @@ namespace MTU.NPCs
     {
         public override void NPCLoot(NPC npc)
         {
-            ModContent.GetInstance<PlayerOne>().enemiesKilled++;
-            Main.NewText(ModContent.GetInstance<PlayerOne>().enemiesKilled);
-            
+            var player = ModContent.GetInstance<PlayerOne>();
+
+            #region Loot
             if (npc.type == NPCID.TheDestroyer || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
             {
                 // Either of the mechanicals = vibranium
@@ -83,6 +83,251 @@ namespace MTU.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<EyeOfAgamotto>());
                 }
             }
+            #endregion
+
+            #region Mutant Buff's Progression
+            if (player.tryMutant)
+            {
+                // 0 King slime
+                if (player.bossesKilled[0] == 0 && npc.type == NPCID.KingSlime)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[0] = 1;
+                }
+                // 1 Eye of Cthulhu
+                if (player.bossesKilled[1] == 0 && npc.type == NPCID.EyeofCthulhu)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[1] = 1;
+                }
+                // 2 Eater of Worlds or Brain of Cthulhu
+                if (player.bossesKilled[2] == 0 && (npc.type == NPCID.EaterofWorldsHead || npc.type == NPCID.BrainofCthulhu))
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[2] = 1;
+                }
+                // 3 Queen Bee
+                if (player.bossesKilled[3] == 0 && npc.type == NPCID.EyeofCthulhu)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[3] = 1;
+                }
+                // 4 Skeletron
+                if (player.bossesKilled[4] == 0 && npc.type == NPCID.SkeletronHead)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[4] = 1;
+                }
+                // 5 Wall of Flesh
+                if (player.bossesKilled[5] == 0 && npc.type == NPCID.SkeletronHead)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[5] = 1;
+                }
+                // 6 The twins
+                if (player.bossesKilled[6] == 0 && (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism))
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[6] = 1;
+                }
+                // 7 Destroyer
+                if (player.bossesKilled[7] == 0 && npc.type == NPCID.TheDestroyer)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[7] = 1;
+                }
+                // 8 Skeletron Prime
+                if (player.bossesKilled[8] == 0 && npc.type == NPCID.SkeletronPrime)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[8] = 1;
+                }
+                // 9 Plantera
+                if (player.bossesKilled[9] == 0 && npc.type == NPCID.Plantera)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[9] = 1;
+                }
+                // 10 Golem
+                if (player.bossesKilled[10] == 0 && npc.type == NPCID.Golem)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[10] = 1;
+                }
+                // 11 Duke fishron
+                if (player.bossesKilled[11] == 0 && npc.type == NPCID.DukeFishron)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[11] = 1;
+                }
+                // 12 Cultist
+                if (player.bossesKilled[12] == 0 && npc.type == NPCID.CultistBoss)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[12] = 1;
+                }
+                // 13 Moonlord
+                if (player.bossesKilled[13] == 0 && npc.type == NPCID.MoonLordCore)
+                {
+                    if (player.hasFrenziedBuff)
+                    {
+                        player.mutDamage += 0.01f;
+                    }
+                    else if (player.hasResilientBuff)
+                    {
+                        player.mutDefense += 1;
+                    }
+                    else
+                    {
+                        player.mutSpeed += 0.01f;
+                    }
+                    player.bossesKilled[13] = 1;
+                }
+            }
+            #endregion
         }
     }
 }
