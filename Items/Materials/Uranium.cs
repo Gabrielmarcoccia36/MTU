@@ -24,6 +24,7 @@ namespace MTU.Items.Materials
             item.createTile = mod.TileType("UraniumTile");
             item.autoReuse = true;
             item.material = true;
+            item.value = Item.sellPrice(copper: 75);
         }
     }
 }

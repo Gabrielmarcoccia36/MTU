@@ -13,8 +13,8 @@ namespace MTU.NPCs
     {
         public override void NPCLoot(NPC npc)
         {
-            var player = ModContent.GetInstance<PlayerOne>();
-
+            var player = Main.LocalPlayer.GetModPlayer<PlayerOne>();
+            
             #region Loot
             if (npc.type == NPCID.TheDestroyer || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
             {

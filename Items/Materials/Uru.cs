@@ -18,7 +18,7 @@ namespace MTU.Items.Materials
             item.height = 8;
             item.maxStack = 999;
             item.consumable = true;
-            item.useStyle = 1;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.useTime = 10;
             item.useAnimation = 10;
             item.createTile = mod.TileType("UruTile");

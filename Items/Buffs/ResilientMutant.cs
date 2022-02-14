@@ -10,12 +10,12 @@ namespace MTU.Items.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Resilient Mutant");
-            Description.SetDefault("You posses resilient mutant genes\n" + (int)ModContent.GetInstance<PlayerOne>().mutDefense + "= defense\nKilling a boss for the first time will upgrade this buff");
+            Description.SetDefault("You posses resilient mutant genes\nIncreased defense\nKilling a boss for the first time will upgrade this buff");
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.statDefense += (int)ModContent.GetInstance<PlayerOne>().mutDefense;
+            player.statDefense += (int)player.GetModPlayer<PlayerOne>().mutDefense;
         }
     }
 }

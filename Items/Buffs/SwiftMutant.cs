@@ -15,7 +15,7 @@ namespace MTU.Items.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.moveSpeed *= ModContent.GetInstance<PlayerOne>().mutSpeed;
+            player.moveSpeed *= player.GetModPlayer<PlayerOne>().mutSpeed;
         }
     }
 }

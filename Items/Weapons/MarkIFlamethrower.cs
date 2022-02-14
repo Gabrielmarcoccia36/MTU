@@ -18,7 +18,7 @@ namespace MTU.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 5;
+			item.damage = 10;
 			item.ranged = true;
 			item.width = 50;
 			item.height = 18;
@@ -35,7 +35,7 @@ namespace MTU.Items.Weapons
 			item.UseSound = SoundID.Item34;
 			item.autoReuse = true;
 			item.shoot = ProjectileID.Flames;
-			item.shootSpeed = 2f; // How fast the flames will travel. Vanilla Flamethrower uses 7f and consequentially has less reach. item.shootSpeed and projectile.timeLeft together control the range.
+			item.shootSpeed = 3.5f; // How fast the flames will travel. Vanilla Flamethrower uses 7f and consequentially has less reach. item.shootSpeed and projectile.timeLeft together control the range.
 			item.mana = 10;
 		}
 

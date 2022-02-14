@@ -11,11 +11,11 @@ namespace MTU.Players
     {
         public bool hasHawkQuiver, hasAether, hasCaptain, hasChaosBuff, hasSoldierBuff, hasAgentBuff;
         public bool tryMutant, hasFrenziedBuff, hasSwiftBuff, hasResilientBuff;
-        public float mutSpeed, mutDefense, mutDamage;
+        public float mutSpeed = 1.1f, mutDefense = 5, mutDamage = 1.1f;
 
         // 0: king slime  1: eye  2: EOF or Brain  3: Queen Bee  4: Skeletron  5: WoF  6: Twins  7: Destroyer 
         // 8: Skeletron Prime  9: Plantera  10: Golem  11: Fishron 12: cultist  13: moonlord
-        public int[] bossesKilled;
+        public int[] bossesKilled = new int[14];
 
         public override void Initialize()
         {
@@ -28,8 +28,8 @@ namespace MTU.Players
             hasResilientBuff = false;
             mutSpeed = 1.1f;
             mutDefense = 5;
-            mutDamage = 1.05f;
-            bossesKilled = new [] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            mutDamage = 1.1f;
+            bossesKilled = new int[14];
         }
 
         public override void Load(TagCompound tag)
@@ -114,7 +114,7 @@ namespace MTU.Players
 
         public override void OnEnterWorld(Player player)
         {
-            int var = Main.rand.Next(5);
+            int var = Main.rand.Next(3);
             if (var == 0 && !tryMutant)
             {
                 var = Main.rand.Next(3);
@@ -131,7 +131,15 @@ namespace MTU.Players
                     hasResilientBuff = true;
                 }
             }
+
             tryMutant = true;
+            if (bossesKilled.Length == 0)
+            {
+                bossesKilled = new int[14];
+                mutSpeed = 1.1f;
+                mutDefense = 5;
+                mutDamage = 1.1f;
+            }
         }
     }
 }

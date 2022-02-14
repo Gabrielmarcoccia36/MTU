@@ -15,7 +15,7 @@ namespace MTU.Items.Buffs
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.allDamage *= ModContent.GetInstance<PlayerOne>().mutDamage;
+            player.allDamage *= player.GetModPlayer<PlayerOne>().mutDamage;
         }
     }
 }
