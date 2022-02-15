@@ -24,8 +24,8 @@ namespace MTU.Items.Consumable
             item.value = Item.sellPrice(gold: 15);
             item.rare = ItemRarityID.LightPurple;
             item.useStyle = ItemUseStyleID.EatingUsing;
-            item.useAnimation = 15;
-            item.useTime = 15;
+            item.useAnimation = 40;
+            item.useTime = 40;
             item.useTurn = true;
             item.UseSound = SoundID.Item3;
             item.consumable = true;
@@ -49,7 +49,7 @@ namespace MTU.Items.Consumable
             {
                 Main.NewText("This world already has Vibranium!");
 
-                return true;
+                return false;
             }            
             
         }
