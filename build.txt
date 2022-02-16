@@ -1,5 +1,5 @@
 displayName = Marvel Terraria Universe
 author = Nkaiw0rld
-version = 0.2.1
+version = 0.2.2
 homepage = https://discord.gg/NMvMqJqxjm
 buildIgnore = *.csproj

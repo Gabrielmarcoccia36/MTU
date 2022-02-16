@@ -10,7 +10,7 @@ namespace MTU.Items.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Frenzied Mutant");
-            Description.SetDefault("You posses frenzied mutant genes\n5% damage increase\nKilling a boss for the first time will upgrade this buff");
+            Description.SetDefault("You posses frenzied mutant genes\nIncreased damage\nKilling a boss for the first time will upgrade this buff");
         }
 
         public override void Update(Player player, ref int buffIndex)
