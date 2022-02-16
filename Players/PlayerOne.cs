@@ -102,14 +102,16 @@ namespace MTU.Players
         {
             if (hasAether)
             {
-                Main.NewText(hasAether);
-                int proj = Projectile.NewProjectile(npc.position, new Vector2(0,0), ProjectileID.Bomb, 7, 0, 1);
+                int proj = Projectile.NewProjectile(npc.position, new Vector2(0,0), ProjectileID.SolarWhipSwordExplosion, 7, 0, 1);
+                Main.projectile[proj].friendly = true;
                 Main.projectile[proj].timeLeft = 3;
+                npc.StrikeNPC(damage * 5, 0, 0);
             }
         }
         public override void ResetEffects()
         {
             hasCaptain = false;
+            hasAether = false;
         }
 
         public override void OnEnterWorld(Player player)

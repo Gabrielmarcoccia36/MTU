@@ -23,8 +23,8 @@ namespace MTU.Items.Consumable
             item.value = Item.sellPrice(gold: 25);
             item.rare = ItemRarityID.Red;
             item.useStyle = ItemUseStyleID.EatingUsing;
-            item.useAnimation = 15;
-            item.useTime = 15;
+            item.useAnimation = 20;
+            item.useTime = 20;
             item.useTurn = true;
             item.UseSound = SoundID.Item3;
             item.consumable = true;
@@ -36,12 +36,23 @@ namespace MTU.Items.Consumable
             {
                 Main.NewText(player.name + " became a Secret Agent!");
                 player.GetModPlayer<PlayerOne>().hasAgentBuff = true;
-                return true;
             }
-            else
+            else if (player.GetModPlayer<PlayerOne>().hasChaosBuff)
             {
-                return false;
+                Main.NewText(player.name + " is already a Chaos Vessel!");
+                player.Hurt(Terraria.DataStructures.PlayerDeathReason.ByCustomReason("Stop experimenting with your body!"), 50, 0);
             }
+            else if (player.GetModPlayer<PlayerOne>().hasSoldierBuff)
+            {
+                Main.NewText(player.name + " is already a Super Soldier!");
+                player.Hurt(Terraria.DataStructures.PlayerDeathReason.ByCustomReason("Stop experimenting with your body!"), 50, 0);
+            }
+            else if (player.GetModPlayer<PlayerOne>().hasAgentBuff)
+            {
+                Main.NewText(player.name + " is already a Secret Agent!");
+                player.Hurt(Terraria.DataStructures.PlayerDeathReason.ByCustomReason("Stop experimenting with your body!"), 50, 0);
+            }
+            return true;
         }
 
         public override void AddRecipes()
