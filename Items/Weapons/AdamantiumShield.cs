@@ -36,7 +36,7 @@ namespace MTU.Items.Weapons
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.GetInstance<AdamantiumBar>(), 30);
+            recipe.AddIngredient(ModContent.ItemType<AdamantiumBar>(), 30);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
