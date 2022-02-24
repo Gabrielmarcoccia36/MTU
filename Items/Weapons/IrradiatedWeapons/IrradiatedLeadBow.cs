@@ -16,8 +16,8 @@ namespace MTU.Items.Weapons.IrradiatedWeapons
         }
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 50;
+            item.width = 16;
+            item.height = 32;
             item.rare = ItemRarityID.White;
             item.value = Item.sellPrice(silver: 4, copper: 40);
 
