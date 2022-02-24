@@ -83,6 +83,15 @@ namespace MTU.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<EyeOfAgamotto>());
                 }
             }
+
+            // Zombies = cheese
+            if (npc.type == NPCID.Zombie)
+            {
+                if (Main.rand.Next(10) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Cheese>());
+                }
+            }
             #endregion
 
             #region Mutant Buff's Progression

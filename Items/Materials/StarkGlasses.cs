@@ -20,12 +20,20 @@ namespace MTU.Items.Materials
             item.rare = ItemRarityID.LightRed;
             item.material = true;
             item.consumable = true;
+            item.useStyle = ItemUseStyleID.EatingUsing;
+            item.useAnimation = 20;
+            item.useTime = 20;
+            item.useTurn = true;
+            item.UseSound = SoundID.Item3;
+            item.consumable = true;
         }
-        public override void OnConsumeItem(Player player)
+        public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.Spelunker, 300);
-            player.AddBuff(BuffID.Hunter, 300);
-            player.AddBuff(BuffID.NightOwl, 300);
+            player.AddBuff(BuffID.Spelunker, 18000);
+            player.AddBuff(BuffID.Hunter, 18000);
+            player.AddBuff(BuffID.NightOwl, 18000);
+
+            return true;
         }
         public override void AddRecipes()
         {

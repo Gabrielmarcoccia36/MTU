@@ -43,15 +43,12 @@ namespace MTU.Items.Consumable
                 }
 
                 ModContent.GetInstance<MTUWorld>().SetHasVibranium(true);
-                return true;
             }
             else
             {
                 Main.NewText("This world already has Vibranium!");
-
-                return false;
-            }            
-            
+            }
+            return true;
         }
     }
 }
