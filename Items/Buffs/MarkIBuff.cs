@@ -17,6 +17,7 @@ namespace MTU.Items.Buffs
             player.rocketBoots = 1;
             player.moveSpeed -= 0.45f;
             player.statDefense += 4;
+            player.rocketTimeMax = 3;
         }
     }
 }

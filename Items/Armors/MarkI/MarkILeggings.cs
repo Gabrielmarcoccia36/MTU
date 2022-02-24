@@ -16,7 +16,7 @@ namespace MTU.Items.Armors.MarkI
         public override void SetDefaults()
         {
             item.width = 22;
-            item.height = 22;
+            item.height = 18;
             item.value = Item.sellPrice(silver: 10);
             item.rare = ItemRarityID.Green;
             item.defense = 2;
