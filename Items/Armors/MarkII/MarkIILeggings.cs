@@ -10,7 +10,7 @@ namespace MTU.Items.Armors.MarkII
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mark II Leggings");
-            Tooltip.SetDefault("5% increased movement speed\n8% increased critical");
+            Tooltip.SetDefault("7% increased movement speed\n10% increased critical");
         }
 
         public override void SetDefaults()
@@ -18,17 +18,17 @@ namespace MTU.Items.Armors.MarkII
             item.width = 22;
             item.height = 18;
             item.value = Item.sellPrice(gold: 6);
-            item.rare = ItemRarityID.Green;
-            item.defense = 12;
+            item.rare = ItemRarityID.Lime;
+            item.defense = 13;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed *= 1.05f;
-            player.meleeCrit *= (int)1.08f;
-            player.magicCrit *= (int)1.08f;
-            player.rangedCrit *= (int)1.08f;
-            player.thrownCrit *= (int)1.08f;
+            player.moveSpeed *= 1.07f;
+            player.meleeCrit *= (int)1.1f;
+            player.magicCrit *= (int)1.1f;
+            player.rangedCrit *= (int)1.1f;
+            player.thrownCrit *= (int)1.1f;
         }
 
         public override void AddRecipes()

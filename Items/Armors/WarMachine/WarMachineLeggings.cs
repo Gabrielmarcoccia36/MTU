@@ -10,7 +10,7 @@ namespace MTU.Items.Armors.WarMachine
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("War Machine Leggings");
-            Tooltip.SetDefault("8% increased movement speed\n10% increased ranged critical");
+            Tooltip.SetDefault("10% increased movement speed\n14% increased ranged critical");
         }
 
         public override void SetDefaults()
@@ -18,14 +18,14 @@ namespace MTU.Items.Armors.WarMachine
             item.width = 22;
             item.height = 18;
             item.value = Item.sellPrice(gold: 6);
-            item.rare = ItemRarityID.Green;
-            item.defense = 10;
+            item.rare = ItemRarityID.Lime;
+            item.defense = 12;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed *= 1.08f;
-            player.rangedCrit *= (int)1.1f;
+            player.moveSpeed *= 1.1f;
+            player.rangedCrit *= (int)1.14f;
         }
 
         public override void AddRecipes()

@@ -20,8 +20,8 @@ namespace MTU.Items.Armors.WarMachine
             item.height = 20;
             item.maxStack = 1;
             item.value = Item.sellPrice(gold: 10);
-            item.rare = ItemRarityID.Green;
-            item.defense = 18;
+            item.rare = ItemRarityID.Lime;
+            item.defense = 21;
         }
 
         public override void UpdateEquip(Player player)

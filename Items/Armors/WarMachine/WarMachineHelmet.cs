@@ -11,7 +11,7 @@ namespace MTU.Items.Armors.WarMachine
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("War Machine Helmet");
-            Tooltip.SetDefault("15% increased ranged damage\n25% chance not to consume ammo");
+            Tooltip.SetDefault("18% increased ranged damage\n25% chance not to consume ammo");
         }
 
         public override void SetDefaults()
@@ -20,13 +20,13 @@ namespace MTU.Items.Armors.WarMachine
             item.height = 18;
             item.maxStack = 1;
             item.value = Item.sellPrice(gold: 10);
-            item.rare = ItemRarityID.Green;
-            item.defense = 15;
+            item.rare = ItemRarityID.Lime;
+            item.defense = 16;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.rangedDamage *= 1.15f;
+            player.rangedDamage *= 1.18f;
         }
         public override bool ConsumeAmmo(Player player)
         {

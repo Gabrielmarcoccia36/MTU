@@ -54,15 +54,5 @@ namespace MTU.Items.Consumable
             }
             return true;
         }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<ChaosParticle>(), 60);
-            recipe.AddIngredient(ItemID.Book, 1);
-            recipe.AddTile(TileID.Bottles);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
     }
 }

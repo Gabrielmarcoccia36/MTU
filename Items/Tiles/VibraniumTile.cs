@@ -14,6 +14,7 @@ namespace MTU.Items.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileLavaDeath[Type] = false;
             Main.tileShine[Type] = 1000;
+            Main.tileSpelunker[Type] = true;
 
 
             drop = mod.ItemType("Vibranium");

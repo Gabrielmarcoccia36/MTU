@@ -11,7 +11,7 @@ namespace MTU.Items.Armors.MarkII
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mark II Helmet");
-            Tooltip.SetDefault("14% increased damage");
+            Tooltip.SetDefault("16% increased damage");
         }
 
         public override void SetDefaults()
@@ -20,13 +20,13 @@ namespace MTU.Items.Armors.MarkII
             item.height = 18;
             item.maxStack = 1;
             item.value = Item.sellPrice(gold: 10);
-            item.rare = ItemRarityID.Green;
+            item.rare = ItemRarityID.Lime;
             item.defense = 18;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.allDamage *= 1.14f;
+            player.allDamage *= 1.16f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

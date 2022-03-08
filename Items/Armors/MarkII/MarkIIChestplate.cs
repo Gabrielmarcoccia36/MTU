@@ -20,8 +20,8 @@ namespace MTU.Items.Armors.MarkII
             item.height = 20;
             item.maxStack = 1;
             item.value = Item.sellPrice(gold: 10);
-            item.rare = ItemRarityID.Green;
-            item.defense = 22;
+            item.rare = ItemRarityID.Lime;
+            item.defense = 24;
         }
 
         public override void UpdateEquip(Player player)

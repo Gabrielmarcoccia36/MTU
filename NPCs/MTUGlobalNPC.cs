@@ -19,7 +19,7 @@ namespace MTU.NPCs
             if (npc.type == NPCID.TheDestroyer || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
             {
                 // Either of the mechanicals = vibranium
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.Next(3) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<WakandasBlessing>());
                 }
@@ -27,7 +27,7 @@ namespace MTU.NPCs
                 // destroyer = Training Routine
                 if (npc.type == NPCID.TheDestroyer)
                 {
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.Next(4) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TrainingRoutine>());
                     }
@@ -35,7 +35,7 @@ namespace MTU.NPCs
                 // twins = Super Soldier Serum
                 if (npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
                 {
-                    if (Main.rand.Next(2) == 0)
+                    if (Main.rand.Next(4) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<SuperSoldierSerum>());
                     }
@@ -51,7 +51,7 @@ namespace MTU.NPCs
             // NPCs in hell = chaos particles
             if ((npc.position.Y / 16f >= Main.maxTilesY - 200 || npc.position.Y >= (Main.maxTilesY - 200) * 16) && ModContent.GetInstance<MTUWorld>().GetKilledSkeletronPrime())
             {
-                if (Main.rand.Next(5) == 0)
+                if (Main.rand.Next(4) == 0)
                 {
                     Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosParticle>(), Main.rand.Next(3));
                 }
@@ -84,8 +84,8 @@ namespace MTU.NPCs
                 }
             }
 
-            // Zombies = cheese
-            if (npc.type == NPCID.Zombie)
+            // Surface enemies = cheese
+            if (npc.position.Y >= Main.worldSurface)
             {
                 if (Main.rand.Next(10) == 0)
                 {
