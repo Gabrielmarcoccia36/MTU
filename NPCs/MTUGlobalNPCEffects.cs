@@ -28,9 +28,9 @@ namespace MTU.NPCs
                     npc.lifeRegen = 0;
                 }
                 npc.lifeRegen -= 10;
-                if (damage < 2)
+                if (damage < 5)
                 {
-                    damage = 2;
+                    damage = 5;
                 }
             }
         }

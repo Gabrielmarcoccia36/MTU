@@ -85,7 +85,7 @@ namespace MTU.NPCs
             }
 
             // Surface enemies = cheese
-            if (npc.position.Y >= Main.worldSurface)
+            if (npc.position.Y / 16f <= Main.worldSurface && npc.position.Y / 16 >= Main.worldSurface * 0.35f)
             {
                 if (Main.rand.Next(10) == 0)
                 {
