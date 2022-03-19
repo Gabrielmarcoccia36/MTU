@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MTU.Players;
 
 namespace MTU.Items.InfinityStones
 {
@@ -9,7 +10,7 @@ namespace MTU.Items.InfinityStones
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Soul Stone");
-            Tooltip.SetDefault("A soul for a soul");
+            Tooltip.SetDefault("A soul for a soul\nUse to check how many collected souls");
         }
 
         public override void SetDefaults()
@@ -27,8 +28,7 @@ namespace MTU.Items.InfinityStones
 
         public override bool UseItem(Player player)
         {
-            player.AddBuff(9, 36000);
-            player.AddBuff(17, 36000);
+            Main.NewText(player.GetModPlayer<PlayerOne>().collectedSouls);
 
             return true;
         }

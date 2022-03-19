@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using MTU.Items.Consumable;
 using MTU.Items.Materials;
 using MTU.Items.Weapons;
+using MTU.Items.InfinityStones;
 using MTU.Players;
 
 namespace MTU.NPCs
@@ -91,6 +92,18 @@ namespace MTU.NPCs
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Cheese>());
                 }
+            }
+            #endregion
+
+            #region IFStones
+            if (Main.LocalPlayer.HasItem(ModContent.ItemType<SoulStone>()))
+            {
+                player.collectedSouls++;
+                int dust = Dust.NewDust(npc.position, 1, 1, DustID.GoldFlame, 0f, 0f, 0, default, 10f);
+                Main.dust[dust].noGravity = true;
+                Main.dust[dust].position = npc.position;
+                Main.dust[dust].scale = (float)Main.rand.Next(70, 110) * 0.025f;
+                Main.dust[dust].velocity.Y *= 1.5f;
             }
             #endregion
 

@@ -85,10 +85,10 @@ namespace MTU.Items.Weapons
 
         public override void SetDefaults()
         {
-            projectile.width = 36;
-            projectile.height = 36;
+            projectile.width = 80;
+            projectile.height = 80;
             projectile.friendly = true;
-            projectile.penetrate = -1;
+            projectile.penetrate = 20;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.ranged = true;
@@ -141,7 +141,7 @@ namespace MTU.Items.Weapons
                 projectile.Kill();
             }
 
-            if (_charge >= 50 && Main.rand.NextFloat() <= 0.25f) //Dust when charged
+            if (_charge >= 50 && Main.rand.NextFloat() <= 0.5f) //Dust when charged
                 Dust.NewDustPerfect(projectile.position - new Vector2(0, 16), DustID.Electric, new Vector2(0, 5).RotatedByRandom(MathHelper.PiOver2));
         }
 

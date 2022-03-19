@@ -40,19 +40,7 @@ namespace MTU.Items.Consumable
                 Main.NewText("Swift speed: " + player.GetModPlayer<PlayerOne>().mutSpeed);
                 Main.NewText("Frenzied mutant: " + player.GetModPlayer<PlayerOne>().hasFrenziedBuff);
                 Main.NewText("Frenzied damage: " + player.GetModPlayer<PlayerOne>().mutDamage);
-
-                Main.NewText(player.GetModPlayer<PlayerOne>().bossesKilled.Length);
-                for (int i = 0; i < 3; i++)
-                {
-                    if (player.GetModPlayer<PlayerOne>().bossesKilled[i] == 1)
-                    {
-                        Main.NewText("Boss " + i + " defeated");
-                    }
-                    else
-                    {
-                        Main.NewText("Boss " + i + " alive");
-                    }
-                }
+                Main.NewText("Collected souls: " + player.GetModPlayer<PlayerOne>().collectedSouls);
             }
             else
             {
@@ -66,6 +54,7 @@ namespace MTU.Items.Consumable
                 player.GetModPlayer<PlayerOne>().mutDamage = 1.1f;
                 player.GetModPlayer<PlayerOne>().mutSpeed = 1.1f;
                 player.GetModPlayer<PlayerOne>().mutDefense = 5;
+                player.GetModPlayer<PlayerOne>().collectedSouls = 0;
 
                 for (int i = 0; i < player.GetModPlayer<PlayerOne>().bossesKilled.Length; i++)
                 {
