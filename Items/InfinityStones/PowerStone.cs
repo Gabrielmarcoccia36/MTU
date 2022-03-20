@@ -91,6 +91,7 @@ namespace MTU.Items.InfinityStones
             projectile.extraUpdates = 120;
             projectile.timeLeft = 400; // lowered from 300
             projectile.penetrate = 20;
+            projectile.tileCollide = false;
         }
 
         // Note, this Texture is actually just a blank texture, FYI.

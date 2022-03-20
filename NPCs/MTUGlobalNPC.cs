@@ -96,15 +96,7 @@ namespace MTU.NPCs
             #endregion
 
             #region IFStones
-            if (Main.LocalPlayer.HasItem(ModContent.ItemType<SoulStone>()))
-            {
-                player.collectedSouls++;
-                int dust = Dust.NewDust(npc.position, 1, 1, DustID.GoldFlame, 0f, 0f, 0, default, 10f);
-                Main.dust[dust].noGravity = true;
-                Main.dust[dust].position = npc.position;
-                Main.dust[dust].scale = (float)Main.rand.Next(70, 110) * 0.025f;
-                Main.dust[dust].velocity.Y *= 1.5f;
-            }
+            
             #endregion
 
             #region Mutant Buff's Progression
@@ -350,6 +342,31 @@ namespace MTU.NPCs
                 }
             }
             #endregion
+        }
+
+        public override void HitEffect(NPC npc, int hitDirection, double damage)
+        {
+            var player = Main.LocalPlayer.GetModPlayer<PlayerOne>();
+
+            // Soul stone effect. Every 150 kills, 1% damage increase
+            if (Main.LocalPlayer.HasItem(ModContent.ItemType<SoulStone>()))
+            {
+                if (npc.life <= 0)
+                {
+                    if (player.collectedSouls == 149)
+                    {
+                        player.collectedSouls = 0;
+                        player.soulsUpgrade += 0.01f;
+                    }
+                    else
+                    {
+                        player.collectedSouls++;
+                    }
+                    int dust = Dust.NewDust(npc.position, 1, 1, DustID.LavaBubbles, 0, 0, 0, default, 3f);
+                    Main.dust[dust].noGravity = true;
+                }
+            }
+            
         }
     }
 }

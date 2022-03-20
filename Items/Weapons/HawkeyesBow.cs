@@ -39,7 +39,7 @@ namespace MTU.Items.Weapons
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            if (ModContent.GetInstance<PlayerOne>().GetHasHawkQuiver() && type == ProjectileID.WoodenArrowFriendly)
+            if (ModContent.GetInstance<PlayerOne>().hasHawkQuiver && type == ProjectileID.WoodenArrowFriendly)
             {
                 int var = Main.rand.Next(0, 4);
 
@@ -71,7 +71,7 @@ namespace MTU.Items.Weapons
 
         public override bool ConsumeAmmo(Player player)
         {
-            if (ModContent.GetInstance<PlayerOne>().GetHasHawkQuiver())
+            if (ModContent.GetInstance<PlayerOne>().hasHawkQuiver)
             {
                 return Main.rand.NextFloat() >= 0.15f;
             }

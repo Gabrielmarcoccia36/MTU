@@ -3,16 +3,24 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using MTU.Items.Buffs;
+using MTU.Items.InfinityStones;
 using Microsoft.Xna.Framework;
 
 namespace MTU.Players
 {
     public class PlayerOne : ModPlayer
     {
-        public bool hasHawkQuiver, hasAether, hasCaptain, hasChaosBuff, hasSoldierBuff, hasAgentBuff;
+        // Items
+        public bool hasHawkQuiver, hasAether, hasCaptain;
+        // Permanent Buffs
+        public bool hasChaosBuff, hasSoldierBuff, hasAgentBuff;
+        // Mutant Buffs
         public bool tryMutant, hasFrenziedBuff, hasSwiftBuff, hasResilientBuff;
         public float mutSpeed = 1.1f, mutDefense = 5, mutDamage = 1.1f;
+
+
         public int baseFlightTime, collectedSouls;
+        public float soulsUpgrade;
 
         // 0: king slime  1: eye  2: EOF or Brain  3: Queen Bee  4: Skeletron  5: WoF  6: Twins  7: Destroyer 
         // 8: Skeletron Prime  9: Plantera  10: Golem  11: Fishron 12: cultist  13: moonlord
@@ -33,6 +41,7 @@ namespace MTU.Players
             bossesKilled = new int[14];
             baseFlightTime = player.rocketTimeMax;
             collectedSouls = 0;
+            soulsUpgrade = 1f;
         }
 
         public override void Load(TagCompound tag)
@@ -50,6 +59,7 @@ namespace MTU.Players
             bossesKilled = tag.GetIntArray("bossesKilled");
             baseFlightTime = tag.GetInt("baseFlightTime");
             collectedSouls = tag.GetInt("collectedSouls");
+            soulsUpgrade = tag.GetFloat("soulsUpgrade");
         }
 
         public override TagCompound Save()
@@ -68,7 +78,8 @@ namespace MTU.Players
                 {"mutDamage", mutDamage },
                 {"bossesKilled", bossesKilled },
                 {"baseFlightTime", baseFlightTime },
-                {"collectedSouls", collectedSouls }
+                {"collectedSouls", collectedSouls },
+                {"soulsUpgrade", soulsUpgrade }
             };
 
         }
@@ -99,12 +110,12 @@ namespace MTU.Players
             {
                 player.AddBuff(ModContent.BuffType<ResilientMutant>(), 2);
             }
+            if (Main.LocalPlayer.HasItem(ModContent.ItemType<SoulStone>()) && soulsUpgrade > 1.0f)
+            {
+                player.AddBuff(ModContent.BuffType<SoulStoneBuff>(), 2);
+            }
         }
 
-        public bool GetHasHawkQuiver()
-        {
-			return hasHawkQuiver;
-        }
         public override void OnHitByNPC(NPC npc, int damage, bool crit)
         {
             if (hasAether)

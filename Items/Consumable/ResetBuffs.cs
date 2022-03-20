@@ -32,33 +32,37 @@ namespace MTU.Items.Consumable
         }
         public override bool CanUseItem(Player player)
         {
+            var mplayer = player.GetModPlayer<PlayerOne>();
+
             if (player.altFunctionUse == 2)
             {
-                Main.NewText("Resilient mutant: " + player.GetModPlayer<PlayerOne>().hasResilientBuff);
-                Main.NewText("Resilient defense: " + player.GetModPlayer<PlayerOne>().mutDefense);
-                Main.NewText("Swift mutant: " + player.GetModPlayer<PlayerOne>().hasSwiftBuff);
-                Main.NewText("Swift speed: " + player.GetModPlayer<PlayerOne>().mutSpeed);
-                Main.NewText("Frenzied mutant: " + player.GetModPlayer<PlayerOne>().hasFrenziedBuff);
-                Main.NewText("Frenzied damage: " + player.GetModPlayer<PlayerOne>().mutDamage);
-                Main.NewText("Collected souls: " + player.GetModPlayer<PlayerOne>().collectedSouls);
+                Main.NewText("Resilient mutant: " + mplayer.hasResilientBuff);
+                Main.NewText("Resilient defense: " + mplayer.mutDefense);
+                Main.NewText("Swift mutant: " + mplayer.hasSwiftBuff);
+                Main.NewText("Swift speed: " + mplayer.mutSpeed);
+                Main.NewText("Frenzied mutant: " + mplayer.hasFrenziedBuff);
+                Main.NewText("Frenzied damage: " + mplayer.mutDamage);
+                Main.NewText("Collected souls: " + mplayer.collectedSouls);
+                Main.NewText("Soul upgrades: " + mplayer.soulsUpgrade);
             }
             else
             {
-                player.GetModPlayer<PlayerOne>().hasChaosBuff = false;
-                player.GetModPlayer<PlayerOne>().hasSoldierBuff = false;
-                player.GetModPlayer<PlayerOne>().hasAgentBuff = false;
-                player.GetModPlayer<PlayerOne>().hasFrenziedBuff = false;
-                player.GetModPlayer<PlayerOne>().hasResilientBuff = false;
-                player.GetModPlayer<PlayerOne>().hasSwiftBuff = false;
-                player.GetModPlayer<PlayerOne>().tryMutant = false;
-                player.GetModPlayer<PlayerOne>().mutDamage = 1.1f;
-                player.GetModPlayer<PlayerOne>().mutSpeed = 1.1f;
-                player.GetModPlayer<PlayerOne>().mutDefense = 5;
-                player.GetModPlayer<PlayerOne>().collectedSouls = 0;
+                mplayer.hasChaosBuff = false;
+                mplayer.hasSoldierBuff = false;
+                mplayer.hasAgentBuff = false;
+                mplayer.hasFrenziedBuff = false;
+                mplayer.hasResilientBuff = false;
+                mplayer.hasSwiftBuff = false;
+                mplayer.tryMutant = false;
+                mplayer.mutDamage = 1.1f;
+                mplayer.mutSpeed = 1.1f;
+                mplayer.mutDefense = 5;
+                mplayer.collectedSouls = 0;
+                mplayer.soulsUpgrade = 1.0f;
 
-                for (int i = 0; i < player.GetModPlayer<PlayerOne>().bossesKilled.Length; i++)
+                for (int i = 0; i < mplayer.bossesKilled.Length; i++)
                 {
-                    player.GetModPlayer<PlayerOne>().bossesKilled[i] = 0;
+                    mplayer.bossesKilled[i] = 0;
                 }
                 
             }
