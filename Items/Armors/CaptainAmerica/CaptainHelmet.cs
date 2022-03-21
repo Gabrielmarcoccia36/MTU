@@ -7,7 +7,7 @@ using MTU.Items.Materials;
 namespace MTU.Items.Armors.CaptainAmerica
 {
     [AutoloadEquip(EquipType.Head)]
-    class WolverineHelmet : ModItem
+    class CaptainHelmet : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -33,7 +33,7 @@ namespace MTU.Items.Armors.CaptainAmerica
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return body.type == ModContent.ItemType<WolverineChestplate>() && legs.type == ModContent.ItemType<WolverineLeggings>();
+            return body.type == ModContent.ItemType<CaptainChestplate>() && legs.type == ModContent.ItemType<CaptainLeggings>();
         }
 
         public override void UpdateArmorSet(Player player)

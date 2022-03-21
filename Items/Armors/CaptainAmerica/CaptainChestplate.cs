@@ -6,7 +6,7 @@ using MTU.Items.Materials;
 namespace MTU.Items.Armors.CaptainAmerica
 {
     [AutoloadEquip(EquipType.Body)]
-    class WolverineChestplate : ModItem
+    class CaptainChestplate : ModItem
     {
         public override void SetStaticDefaults()
         {

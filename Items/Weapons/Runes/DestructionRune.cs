@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
+using Microsoft.Xna.Framework;
 
 namespace MTU.Items.Weapons.Runes
 {
@@ -18,6 +19,13 @@ namespace MTU.Items.Weapons.Runes
 
         internal override void PlayerEffect(Player player)
         {
+        }
+        internal override void SafeAI()
+        {
+            int dust = Dust.NewDust(projectile.position + new Vector2(15, 15), 1, 1, DustID.Water_Crimson, Main.rand.Next(-25, 25), Main.rand.Next(-25, 25), 0, default, 1f);
+            Main.dust[dust].noGravity = true;
+            int dust2 = Dust.NewDust(projectile.position + new Vector2(15, 15), 1, 1, DustID.Water_Crimson, Main.rand.Next(-25, 25), Main.rand.Next(-25, 25), 0, default, 1f);
+            Main.dust[dust2].noGravity = true;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MTU.Items.Weapons.Runes
             item.useTime = item.useAnimation = 30;
             item.useStyle = ItemUseStyleID.HoldingUp;
             item.autoReuse = true;
-            item.UseSound = SoundID.Item5;
+            item.UseSound = SoundID.Item8;
             item.magic = true;
             item.crit = 15;
             item.knockBack = 5f;
