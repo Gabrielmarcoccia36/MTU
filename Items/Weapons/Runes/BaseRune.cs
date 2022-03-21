@@ -27,6 +27,7 @@ namespace MTU.Items.Weapons.Runes
             projectile.tileCollide = false;
             projectile.penetrate = -1;
             projectile.aiStyle = -1;
+            projectile.timeLeft = 3600;
 
             SafeSetDefaults();
         }
@@ -68,7 +69,7 @@ namespace MTU.Items.Weapons.Runes
         /// <summary>Allows you to add more AI functionality if need be. Defaults to a simple up down motion.</summary>
         internal virtual void SafeAI()
         {
-            projectile.velocity.Y = (float)Math.Sin(Main.time * 0.08f) * 0.4f;
+            //projectile.velocity.Y = (float)Math.Sin(Main.time * 0.08f) * 0.4f;
         }
 
         /// <summary>Allows you to apply effect(s) to an NPC when they're close enough to the rune.</summary>

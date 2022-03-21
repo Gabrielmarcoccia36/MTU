@@ -22,6 +22,7 @@ namespace MTU.Items.Materials
             item.useAnimation = 10;
             item.material = true;
             item.rare = ItemRarityID.Pink;
+            item.value = Item.sellPrice(silver: 68);
         }
         public override void AddRecipes()
         {

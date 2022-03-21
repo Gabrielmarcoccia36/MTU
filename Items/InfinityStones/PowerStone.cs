@@ -119,8 +119,6 @@ namespace MTU.Items.InfinityStones
 
         public override void AI()
         {
-            Vector2 dir = projectile.position - Main.screenPosition;
-
             projectile.localAI[0] += 1f;
             if (projectile.localAI[0] > 9f)
             {

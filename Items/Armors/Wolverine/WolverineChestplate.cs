@@ -3,15 +3,15 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using MTU.Items.Materials;
 
-namespace MTU.Items.Armors.CaptainAmerica
+namespace MTU.Items.Armors.Wolverine
 {
     [AutoloadEquip(EquipType.Body)]
     class WolverineChestplate : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Captain America's Chestplate");
-            Tooltip.SetDefault("6% increased damage");
+            DisplayName.SetDefault("Wolverine's Chestplate");
+            Tooltip.SetDefault("15% increased melee damage");
         }
 
         public override void SetDefaults()
@@ -19,20 +19,20 @@ namespace MTU.Items.Armors.CaptainAmerica
             item.width = 34;
             item.height = 20;
             item.maxStack = 1;
-            item.value = Item.sellPrice(silver: 20);
-            item.rare = ItemRarityID.LightPurple;
-            item.defense = 22;
+            item.value = Item.sellPrice(gold: 40, silver: 80);
+            item.rare = ItemRarityID.Yellow;
+            item.defense = 18;
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.allDamage *= 1.06f;
+            player.meleeDamage *= 1.15f;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<VibraniumBar>(), 26);
+            recipe.AddIngredient(ModContent.ItemType<AdamantiumBar>(), 26);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();

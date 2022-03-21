@@ -11,8 +11,8 @@ namespace MTU.Items.Weapons.Runes
 
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 30;
+            item.width = 28;
+            item.height = 32;
             item.rare = ItemRarityID.LightPurple;
             item.value = Item.sellPrice(gold: 2);
             item.useTime = item.useAnimation = 30;

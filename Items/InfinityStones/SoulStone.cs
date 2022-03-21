@@ -28,7 +28,8 @@ namespace MTU.Items.InfinityStones
 
         public override bool UseItem(Player player)
         {
-            Main.NewText(player.GetModPlayer<PlayerOne>().collectedSouls);
+            Main.NewText("Collected Souls: " + player.GetModPlayer<PlayerOne>().collectedSouls);
+            Main.NewText("Soul Upgrades: " + player.GetModPlayer<PlayerOne>().soulsUpgrade);
 
             return true;
         }

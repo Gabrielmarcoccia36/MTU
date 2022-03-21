@@ -117,6 +117,8 @@ namespace MTU.Items.Weapons
             {
                 _charge++; //Increase charge timer...
                 projectile.timeLeft++; //...and dont die
+                int dust = Dust.NewDust(Main.player[projectile.owner].position - new Vector2(0,35), 1, 1, DustID.Electric, Main.rand.Next(-4,4), Main.rand.Next(-4,4), 40, default, 1.5f);
+                Main.dust[dust].noGravity = true;
             }
             else
             {
