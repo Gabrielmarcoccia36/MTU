@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MTU.Items.Materials;
 
 namespace MTU.Items.Weapons.Runes
 {
@@ -47,6 +48,15 @@ namespace MTU.Items.Weapons.Runes
         internal virtual bool SafeShoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             return true;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<ChaosParticle>(), 20);
+            recipe.AddIngredient(ItemID.SpellTome, 1);
+            recipe.AddTile(TileID.AlchemyTable);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

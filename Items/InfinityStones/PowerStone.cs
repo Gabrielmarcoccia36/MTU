@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MTU.Items.Materials;
 
 namespace MTU.Items.InfinityStones
 {
@@ -72,8 +73,8 @@ namespace MTU.Items.InfinityStones
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, "TheOrb");
-            recipe.AddTile(TileID.TinkerersWorkbench);
+            recipe.AddIngredient(ModContent.ItemType<TheOrb>(), 1);
+            recipe.AddTile(TileID.AdamantiteForge);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

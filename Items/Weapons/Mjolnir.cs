@@ -75,7 +75,7 @@ namespace MTU.Items.Weapons
             }
         }
 
-        private List<LightningData> lightning = new List<LightningData>();
+        private readonly List<LightningData> lightning = new List<LightningData>();
 
         public override void SetDefaults()
         {
@@ -111,7 +111,7 @@ namespace MTU.Items.Weapons
             {
                 _charge++; //Increase charge timer...
                 projectile.timeLeft++; //...and dont die
-                int dust = Dust.NewDust(Main.player[projectile.owner].position - new Vector2(0, 35), 1, 1, DustID.Electric, Main.rand.Next(-4, 4), Main.rand.Next(-4, 4), 40, default, 1.5f);
+                _ = Dust.NewDust(Main.player[projectile.owner].position - new Vector2(0, 35), 1, 1, DustID.Electric, Main.rand.Next(-4, 4), Main.rand.Next(-4, 4), 40, default, 1.5f);
             }
             else
             {

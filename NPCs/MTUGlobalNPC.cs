@@ -93,6 +93,22 @@ namespace MTU.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<Cheese>());
                 }
             }
+
+            // MoonLord
+            if (npc.type == NPCID.MoonLordCore)
+            {
+                if (Main.rand.Next(5) == 0)
+                {
+                    if (Main.rand.Next(1) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TheOrb>());
+                    }
+                    else
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<SoulStone>());
+                    }
+                }
+            }
             #endregion
 
             #region IFStones
@@ -344,6 +360,7 @@ namespace MTU.NPCs
             #endregion
         }
 
+        #region SoulStone
         public override void HitEffect(NPC npc, int hitDirection, double damage)
         {
             var player = Main.LocalPlayer.GetModPlayer<PlayerOne>();
@@ -368,5 +385,6 @@ namespace MTU.NPCs
             }
             
         }
+        #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using MTU.Items.Weapons;
 
 namespace MTU.Items.InfinityStones
 {
@@ -34,7 +35,7 @@ namespace MTU.Items.InfinityStones
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<Items.Weapons.Scepter>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<Scepter>(), 1);
             recipe.AddTile(TileID.AdamantiteForge);
             recipe.SetResult(this);
             recipe.AddRecipe();

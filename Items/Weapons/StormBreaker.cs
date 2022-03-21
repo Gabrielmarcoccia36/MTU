@@ -81,7 +81,7 @@ namespace MTU.Items.Weapons
             }
         }
 
-        private List<LightningData> lightning = new List<LightningData>();
+        private readonly List<LightningData> lightning = new List<LightningData>();
 
         public override void SetDefaults()
         {
